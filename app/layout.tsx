@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Instrument_Serif, Inter, Playfair_Display } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+//playfair and intrumental serif
+import "./globals.css";
+import Navbar from "./_components/Navbar";
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+const playfairDisplay = Playfair_Display({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={` ${playfairDisplay.className}`}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
