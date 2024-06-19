@@ -8,9 +8,13 @@ import Navbar from "./_components/Navbar";
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: ["400"],
+  variable: "--font-instrument",
 });
-const playfairDisplay = Playfair_Display({ subsets: ["latin"] });
-// const inter = Inter({ subsets: ["latin"] });
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "AR Design Studio",
@@ -24,7 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${playfairDisplay.className}`}>
+      <body
+        className={` ${playfairDisplay.variable} ${inter.variable} ${instrumentSerif.variable}`}
+      >
         <Navbar />
         {children}
       </body>

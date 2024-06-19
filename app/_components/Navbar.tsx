@@ -19,7 +19,7 @@ const navItems = [
 
 export default function Navbar() {
   return (
-    <nav className="h-16 w-full border-b fixed top-0 flex items-center justify-center border-zinc-300">
+    <nav className="h-16 w-full border-b fixed top-0 flex items-center justify-center border-zinc-300 font-playfair z-[51] bg-background">
       <div className="max-w-screen-xl flex items-center justify-between h-full w-full">
         <Link href={"/"}>
           <Image
