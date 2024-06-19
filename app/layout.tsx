@@ -1,19 +1,26 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Inter, Playfair_Display } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  Instrument_Serif,
+  Inter,
+  Playfair_Display,
+} from "next/font/google";
 
 //playfair and intrumental serif
 import "./globals.css";
 import Navbar from "./_components/Navbar";
 
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-instrument",
-});
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
 });
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-cormorantGaramond",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
@@ -29,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${playfairDisplay.variable} ${inter.variable} ${instrumentSerif.variable}`}
+        className={` ${playfairDisplay.variable} ${inter.variable} ${cormorantGaramond.variable} bg-background`}
       >
         <Navbar />
         {children}

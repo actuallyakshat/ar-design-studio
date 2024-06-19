@@ -20,7 +20,7 @@ const config = {
     extend: {
       fontFamily: {
         playfair: "var(--font-playfair)",
-        instrument: "var(--font-instrument)",
+        cormorantGaramond: "var(--font-cormorantGaramond)",
         inter: "var(--font-inter)",
       },
       colors: {
@@ -29,6 +29,7 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        alternative: "hsl(var(--alternative))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

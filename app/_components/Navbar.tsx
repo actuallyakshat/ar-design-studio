@@ -19,7 +19,7 @@ const navItems = [
 
 export default function Navbar() {
   return (
-    <nav className="h-16 w-full border-b fixed top-0 flex items-center justify-center border-zinc-300 font-playfair z-[51] bg-background">
+    <nav className="h-16 w-full border-b fixed top-0 flex items-center justify-center border-zinc-300 font-cormorantGaramond text-xl font-semibold z-[51] bg-background">
       <div className="max-w-screen-xl flex items-center justify-between h-full w-full">
         <Link href={"/"}>
           <Image
@@ -30,14 +30,13 @@ export default function Navbar() {
             className="w-[80px]"
           />
         </Link>
-        <div className="space-x-4">
+        <div className="space-x-6">
           {navItems.map((item, index) => (
             <Link href={item.href} key={index} className="font-medium">
               {item.name}
             </Link>
           ))}
         </div>
-        <div className="font-medium">Contact</div>
       </div>
     </nav>
   );
