@@ -12,7 +12,6 @@ export default function HeroSection() {
           words="Elegant Interiors Tailored to Your Vision"
           className="font-cormorantGaramond font-normal text-center text-background md:mt-56 text-5xl leading-[3.5rem] md:text-7xl"
         />
-        {/*slide left */}
         <motion.p
           className="text-center text-background text-lg font-cormorantGaramond max-w-4xl mx-auto z-[3]"
           initial={{ opacity: 0 }}
