@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen w-full bg-[url('/assets/hero3.jpg')] bg-cover bg-center bg-no-repeat">
+    <section className="relative min-h-screen w-full bg-[url('/assets/hero3.jpg')] bg-cover bg-center bg-no-repeat pb-10 px-5 flex items-center justify-center md:block">
       <div className="absolute inset-0 bg-black/20" />
       <div className="w-full h-full z-[10] flex flex-col items-center font-cormorantGaramond gap-1">
         <WordsFadeIn
           words="Elegant Interiors Tailored to Your Vision"
-          className="font-cormorantGaramond font-normal text-center text-background mt-56 text-7xl"
+          className="font-cormorantGaramond font-normal text-center text-background md:mt-56 text-5xl leading-[3.5rem] md:text-7xl"
         />
         {/*slide left */}
         <motion.p
