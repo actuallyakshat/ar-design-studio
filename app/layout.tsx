@@ -9,6 +9,7 @@ import {
 //playfair and intrumental serif
 import "./globals.css";
 import Navbar from "./_components/Navbar";
+import Footer from "./_components/Footer";
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
@@ -40,6 +41,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

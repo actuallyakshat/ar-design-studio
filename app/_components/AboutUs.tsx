@@ -63,7 +63,7 @@ export default function AboutUs() {
           About Us
         </motion.h2>
         <motion.p
-          className="mt-2 font-inter text- max-w-screen-lg pr-0"
+          className="mt-2 font-inter text- max-w-screen-lg pr-0 font-light"
           ref={ref}
           transition={{ delay: 0.5 }}
           initial="hidden"
@@ -91,11 +91,11 @@ export default function AboutUs() {
         >
           What makes us different?
         </motion.h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
           {features.map((feature) => (
             <motion.div
               key={feature.heading}
-              className="col-span-1 p-4 border border-zinc-300 bg-[#f2ede8] font-inter space-y-1 shadow-md"
+              className="col-span-1 h-full font-inter space-y-1"
               ref={ref}
               initial="hidden"
               animate={controls}
@@ -105,7 +105,7 @@ export default function AboutUs() {
               <h3 className="text-2xl font-cormorantGaramond font-semibold">
                 {feature.heading}
               </h3>
-              <p>{feature.description}</p>
+              <p className="font-light">{feature.description}</p>
             </motion.div>
           ))}
         </div>

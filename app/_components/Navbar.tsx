@@ -40,8 +40,8 @@ export default function Navbar() {
           <Image
             src={"/logo.png"}
             alt={"logo"}
-            width={400}
-            height={400}
+            width={800}
+            height={800}
             className="size-20 object-contain"
           />
         </Link>

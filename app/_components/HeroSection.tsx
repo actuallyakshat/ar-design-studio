@@ -13,7 +13,7 @@ export default function HeroSection() {
           className="font-cormorantGaramond font-normal text-center text-background md:mt-56 text-5xl leading-[3.5rem] md:text-7xl"
         />
         <motion.p
-          className="text-center text-background text-lg font-cormorantGaramond max-w-4xl mx-auto z-[3]"
+          className="text-center text-background text-xl font-cormorantGaramond max-w-4xl mx-auto z-[3]"
           initial={{ opacity: 0 }}
           animate={{ x: ["-10%", "0%"], opacity: [0, 1] }}
           transition={{ duration: 1, type: "just", delay: 0.5 }}
@@ -25,7 +25,7 @@ export default function HeroSection() {
           taste, ensuring every project is unique and personal.
         </motion.p>
         <motion.button
-          className="px-4 py-2 text-lg font-bold bg-background z-[3] mt-4"
+          className="px-4 py-2 text-lg font-bold border borer-background hover:bg-background transition-colors duration-500 text-white hover:text-black z-[3] mt-4"
           initial={{ opacity: 0 }}
           animate={{ x: ["-30%", "0%"], opacity: [0, 1] }}
           transition={{ duration: 1, type: "just", delay: 0.9 }}
