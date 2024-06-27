@@ -94,11 +94,11 @@ function ImageModal({ image, setShowImage }: { image: string; setShowImage: Reac
       onClick={() => setShowImage(false)}
     >
       <Image
-        className="w-full max-w-2xl object-cover"
+        className="w-full max-h-[90vh] aspect-square object-contain"
         src={`/assets/portfolio/${image}`}
         alt="3D Render"
-        width={1000}
-        height={1000}
+        width={2000}
+        height={2000}
       />
     </div>
   );
