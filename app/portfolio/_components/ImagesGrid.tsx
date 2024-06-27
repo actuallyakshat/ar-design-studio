@@ -25,7 +25,7 @@ export default function ImagesGrid({
         {!showMore && data.slice(0, CUTOFF).map((render, index) => {
           return (
             <div
-              className="relative cursor-pointer bg-zinc-300"
+              className="relative cursor-pointer overflow-hidden bg-zinc-300 shadow-md" 
               key={index}
               onClick={() => {
                 setSelectedImage(render);
@@ -33,7 +33,7 @@ export default function ImagesGrid({
               }}
             >
               <Image
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
                 src={`/assets/portfolio/${render}`}
                 alt="3D Render"
                 width={1000}
@@ -56,7 +56,7 @@ export default function ImagesGrid({
           {data.map((render, index) => {
             return (
               <div
-                className="relative cursor-pointer bg-zinc-300"
+                className="relative overflow-hidden cursor-pointer bg-zinc-300 shadow-md"
                 key={index}
                 onClick={() => {
                   setSelectedImage(render);
@@ -64,7 +64,7 @@ export default function ImagesGrid({
                 }}
               >
                 <Image
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover hover:scale-105 transition-transform duration-300"
                   src={`/assets/portfolio/${render}`}
                   alt="3D Render"
                   width={1000}
