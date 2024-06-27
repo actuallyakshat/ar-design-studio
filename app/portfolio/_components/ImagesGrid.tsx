@@ -90,7 +90,7 @@ export default function ImagesGrid({
 function ImageModal({ image, setShowImage }: { image: string; setShowImage: React.Dispatch<React.SetStateAction<boolean>> }) {
   return (
     <div
-      className="fixed z-[105] top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center px-10 overflow-y-auto"
+      className="fixed z-[105] top-0 left-0 modal w-full h-full bg-black/50 flex items-center justify-center px-10 overflow-y-auto"
       onClick={() => setShowImage(false)}
     >
       <Image
