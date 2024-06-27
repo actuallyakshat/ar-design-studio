@@ -38,17 +38,17 @@ export default function Services() {
           Our Services
         </h1>
       </div>
-      <div className="mt-8 mx-auto flex flex-col gap-10 max-w-screen-2xl">
+      <div className="mt-8 px-6 mx-auto flex flex-col gap-10 max-w-screen-2xl">
         {services.map((service, index) => (
-          <div key={index} className="grid grid-cols-5 gap-10">
+          <div key={index} className="grid grid-cols-1 lg:grid-cols-5 gap-5 lg:gap-10">
             <div
-              className={`col-span-3 flex flex-col justify-center ${
+              className={`col-span-1 lg:col-span-3 flex flex-col justify-center ${
                 index % 2 === 0
-                  ? "order-2 md:order-1 pr-20"
-                  : "order-1 md:order-2 pl-20"
+                  ? "order-2 lg:order-2 lg:pr-20"
+                  : "order-2 lg:order-2 lg:pl-20"
               }`}
             >
-              <h1 className="text-6xl font-cormorantGaramond">
+              <h1 className="text-3xl lg:text-6xl font-cormorantGaramond">
                 {service.title}
               </h1>
               <p className={`mt-2 font-inter text-xl font-light`}>
@@ -56,7 +56,7 @@ export default function Services() {
               </p>
             </div>
             <div
-              className={`col-span-2 ${index % 2 == 0 ? "order-2" : "order-1"}`}
+              className={`col-span-1 lg:col-span-2 ${index % 2 == 0 ? "lg:order-2 order-1" : "order-1"}`}
             >
               <Image
                 src={service.imageUrl}

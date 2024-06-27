@@ -47,8 +47,10 @@ export default function Navbar() {
         </Link>
         <div className="space-x-6 hidden md:flex">
           {navItems.map((item, index) => (
-            <Link href={item.href} key={index} className="font-medium">
+            <Link href={item.href} key={index} className="relative font-medium group">
               {item.name}
+              <div className="absolute w-full origin-left h-[3px] bg-alternative z-[101] transition-transform duration-300 group-hover:scale-x-100 scale-x-0">
+              </div>
             </Link>
           ))}
         </div>
