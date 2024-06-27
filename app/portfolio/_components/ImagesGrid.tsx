@@ -105,7 +105,7 @@ function ImageModal({ image, setShowImage }: { image: string; setShowImage: Reac
         alt="3D Render"
         width={2000}
         height={2000}
-        onLoadingComplete={() => setLoading(true)}
+        onLoadingComplete={() => setLoading(false)}
       />
     </div>
   );
