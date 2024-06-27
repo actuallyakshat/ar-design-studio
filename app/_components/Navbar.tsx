@@ -34,8 +34,8 @@ const navItems = [
 
 export default function Navbar() {
   return (
-    <nav className="h-16 w-full border-b fixed top-0 flex items-center justify-center border-zinc-300 font-cormorantGaramond text-xl font-semibold z-[49] bg-background px-4">
-      <div className="max-w-screen-xl flex items-center justify-between h-full w-full">
+    <nav className="fixed top-0 z-[49] flex h-16 w-full items-center justify-center border-b border-zinc-300 bg-background px-4 font-cormorantGaramond">
+      <div className="flex h-full w-full max-w-screen-xl items-center justify-between">
         <Link href={"/"}>
           <Image
             src={"/logo.png"}
@@ -45,12 +45,15 @@ export default function Navbar() {
             className="size-20 object-contain"
           />
         </Link>
-        <div className="space-x-6 hidden md:flex">
+        <div className="hidden space-x-6 md:flex">
           {navItems.map((item, index) => (
-            <Link href={item.href} key={index} className="relative font-medium group">
+            <Link
+              href={item.href}
+              key={index}
+              className="group relative font-inter font-light"
+            >
               {item.name}
-              <div className="absolute w-full origin-left h-[3px] bg-alternative z-[101] transition-transform duration-300 group-hover:scale-x-100 scale-x-0">
-              </div>
+              <div className="absolute -bottom-2 z-[101] h-[2px] w-full origin-left scale-x-0 bg-alternative transition-transform duration-300 group-hover:scale-x-100"></div>
             </Link>
           ))}
         </div>
@@ -86,7 +89,7 @@ export function MobileNavbar() {
             <Link
               href={item.href}
               key={index}
-              className="font-medium text-3xl active:underline"
+              className="text-3xl font-medium active:underline"
               onClick={() => setOpen(false)}
             >
               {item.name}

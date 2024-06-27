@@ -4,7 +4,7 @@ import Testimonials from "./_components/Testimonials";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen h-full relative flex-col items-center justify-center scroll-smooth">
+    <main className="relative flex h-full min-h-screen flex-col items-center justify-center scroll-smooth">
       <HeroSection />
       <AboutUs />
       <Testimonials />

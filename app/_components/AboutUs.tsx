@@ -41,10 +41,10 @@ export default function AboutUs() {
     }
   }, [controls, isInView]);
   return (
-    <section className="w-full grid grid-cols-5 pb-8 md:pb-4 lg:pb-0">
-      <div className="md:col-span-2 col-span-5 p-6 md:p-12">
+    <section className="grid w-full grid-cols-5 pb-8 md:pb-4 lg:pb-0">
+      <div className="col-span-5 p-6 md:col-span-2 md:p-12">
         <Image
-          className="w-full aspect-square md:h-full object-cover"
+          className="aspect-square w-full object-cover md:h-full"
           src={"/assets/dummy_woman.jpg"}
           alt="Antara Roy"
           width={1000}
@@ -52,7 +52,7 @@ export default function AboutUs() {
         />
       </div>
 
-      <div className="col-span-5 w-full md:col-span-3 md:py-12 md:pr-10 font-cormorantGaramond px-6">
+      <div className="col-span-5 w-full px-6 font-cormorantGaramond md:col-span-3 md:py-12 md:pr-10">
         <motion.h2
           className="text-4xl font-medium"
           ref={ref}
@@ -63,7 +63,7 @@ export default function AboutUs() {
           About Us
         </motion.h2>
         <motion.p
-          className="mt-2 font-inter text- max-w-screen-lg pr-0 font-light"
+          className="text- mt-2 max-w-screen-lg pr-0 font-inter font-light"
           ref={ref}
           transition={{ delay: 0.5 }}
           initial="hidden"
@@ -82,7 +82,7 @@ export default function AboutUs() {
           excellence and attention to detail.
         </motion.p>
         <motion.h2
-          className="text-4xl mt-8 font-medium"
+          className="mt-8 text-4xl font-medium"
           ref={ref}
           initial="hidden"
           animate={controls}
@@ -91,18 +91,18 @@ export default function AboutUs() {
         >
           What makes us different?
         </motion.h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
+        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {features.map((feature) => (
             <motion.div
               key={feature.heading}
-              className="col-span-1 h-full font-inter space-y-1"
+              className="col-span-1 h-full space-y-1 font-inter"
               ref={ref}
               initial="hidden"
               animate={controls}
               variants={containerVariants}
               transition={{ delay: 1 }}
             >
-              <h3 className="text-2xl font-cormorantGaramond font-semibold">
+              <h3 className="font-cormorantGaramond text-2xl font-semibold">
                 {feature.heading}
               </h3>
               <p className="font-light">{feature.description}</p>

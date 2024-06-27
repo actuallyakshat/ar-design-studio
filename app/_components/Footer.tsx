@@ -5,7 +5,7 @@ import React from "react";
 
 const companyItems = [
   {
-    name: "Home", 
+    name: "Home",
     href: "/",
   },
   {
@@ -20,7 +20,6 @@ const companyItems = [
     name: "Contact",
     href: "/contact",
   },
-  
 ];
 
 const socialItems = [
@@ -31,7 +30,7 @@ const socialItems = [
   {
     name: "Facebook",
     href: "#",
-  }
+  },
 ];
 
 export default function Footer() {
@@ -51,7 +50,10 @@ export default function Footer() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
             modi!
           </p>
-          <p className="flex items-center gap-2 font-medium"><Mail size={18}/>ardesignstudio@gmail.com</p>
+          <p className="flex items-center gap-2 font-medium">
+            <Mail size={18} />
+            ardesignstudio@gmail.com
+          </p>
         </div>
         <div className="col-span-1">
           <h1 className="font-bold text-muted-foreground">Company</h1>
@@ -60,7 +62,7 @@ export default function Footer() {
               <Link
                 href={item.href}
                 key={item.name}
-                className="text-sm transition-colors duration-300 hover:text-main active:text-main"
+                className="hover:text-main active:text-main text-sm transition-colors duration-300"
               >
                 {item.name}
               </Link>
@@ -75,7 +77,7 @@ export default function Footer() {
                 href={item.href}
                 key={item.name}
                 target="_blank"
-                className="text-sm transition-colors duration-300 hover:text-main active:text-main"
+                className="hover:text-main active:text-main text-sm transition-colors duration-300"
               >
                 {item.name}
               </Link>

@@ -53,7 +53,7 @@ export default function ContactForm() {
   const [sentStatus, setSentStatus] = useState("");
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -101,17 +101,17 @@ export default function ContactForm() {
       animate="visible"
       variants={containerVariants}
       onSubmit={handleSubmit}
-      className="mt-4 font-inter font-extralight max-w-lg w-full flex flex-col gap-3"
+      className="mt-4 flex w-full max-w-lg flex-col gap-3 font-inter font-extralight"
     >
       <div>
         <motion.h1
-          className="text-4xl text-alternative font-cormorantGaramond"
+          className="font-cormorantGaramond text-4xl text-alternative"
           variants={itemVariants}
         >
           Contact Us
         </motion.h1>
         <motion.p
-          className="text-lg font-cormorantGaramond"
+          className="font-cormorantGaramond text-lg"
           variants={itemVariants}
         >
           Got any questions for us? We&apos;d love to hear from you!
@@ -159,7 +159,7 @@ export default function ContactForm() {
         <textarea
           name="message"
           placeholder="Your Message"
-          className="formInput min-h-[6rem] max-h-[20rem]"
+          className="formInput max-h-[20rem] min-h-[6rem]"
           value={formData.message}
           onChange={handleChange}
         />
@@ -176,7 +176,7 @@ export default function ContactForm() {
       <motion.button
         variants={itemVariants}
         type="submit"
-        className="bg-alternative hover:bg-alternative/90 transition-colors text-white font-light px-4 py-2 w-full mt-3"
+        className="mt-3 w-full bg-alternative px-4 py-2 font-light text-white transition-colors hover:bg-alternative/90"
       >
         {isLoading ? "Sending..." : "Send Message"}
       </motion.button>

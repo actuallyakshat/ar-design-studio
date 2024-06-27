@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen w-full bg-[url('/assets/hero3.jpg')] bg-cover bg-center bg-no-repeat pb-10 px-5 flex items-center justify-center md:block">
+    <section className="relative flex min-h-screen w-full items-center justify-center bg-[url('/assets/hero3.jpg')] bg-cover bg-center bg-no-repeat px-5 pb-10 md:block">
       <div className="absolute inset-0 bg-black/20" />
-      <div className="w-full h-full z-[10] flex flex-col items-center font-cormorantGaramond gap-1">
+      <div className="z-[10] flex h-full w-full flex-col items-center gap-1 font-cormorantGaramond">
         <WordsFadeIn
           words="Elegant Interiors Tailored to Your Vision"
-          className="font-cormorantGaramond font-normal text-center text-background md:mt-56 text-5xl leading-[3.5rem] md:text-7xl"
+          className="text-center font-cormorantGaramond text-5xl font-normal leading-[3.5rem] text-background md:mt-56 md:text-7xl"
         />
         <motion.p
-          className="text-center text-background text-xl font-cormorantGaramond max-w-4xl mx-auto z-[3]"
+          className="z-[3] mx-auto max-w-4xl text-center font-cormorantGaramond text-xl text-background"
           initial={{ opacity: 0 }}
           animate={{ x: ["-10%", "0%"], opacity: [0, 1] }}
           transition={{ duration: 1, type: "just", delay: 0.5 }}
@@ -25,7 +25,7 @@ export default function HeroSection() {
           taste, ensuring every project is unique and personal.
         </motion.p>
         <motion.button
-          className="px-4 py-2 text-lg font-bold border borer-background hover:bg-background transition-colors duration-500 text-white hover:text-black z-[3] mt-4"
+          className="borer-background z-[3] mt-4 border px-4 py-2 text-lg font-bold text-white transition-colors duration-500 hover:bg-background hover:text-black"
           initial={{ opacity: 0 }}
           animate={{ x: ["-30%", "0%"], opacity: [0, 1] }}
           transition={{ duration: 1, type: "just", delay: 0.9 }}
