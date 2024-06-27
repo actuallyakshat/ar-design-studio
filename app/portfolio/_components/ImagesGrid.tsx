@@ -88,17 +88,24 @@ export default function ImagesGrid({
 }
 
 function ImageModal({ image, setShowImage }: { image: string; setShowImage: React.Dispatch<React.SetStateAction<boolean>> }) {
+  const [loading, setLoading] = useState(true);
   return (
     <div
       className="fixed z-[105] top-0 left-0 modal w-full h-full bg-black/50 flex items-center justify-center px-10 overflow-y-auto"
       onClick={() => setShowImage(false)}
     >
+      {loading && (
+        <div className="absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center">
+          <div className="animate-spin rounded-full h-20 w-20 border-t-2 border-b-2 border-white"></div>
+        </div>
+      )}
       <Image
         className="w-full max-h-[90vh] aspect-square object-contain"
         src={`/assets/portfolio/${image}`}
         alt="3D Render"
         width={2000}
         height={2000}
+        onLoadingComplete={() => setLoading(true)}
       />
     </div>
   );
