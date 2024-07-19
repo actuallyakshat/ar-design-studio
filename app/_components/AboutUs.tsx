@@ -28,6 +28,18 @@ const features = [
 
 const containerVariants = {
   hidden: { opacity: 0, x: -40 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1,
+      staggerChildren: 0.25,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -40 },
   visible: { opacity: 1, x: 0, transition: { duration: 1 } },
 };
 
@@ -35,40 +47,43 @@ export default function AboutUs() {
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref);
+
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
     }
   }, [controls, isInView]);
+
   return (
     <section className="grid w-full grid-cols-5 pb-8 md:pb-4 lg:pb-0">
-      <div className="col-span-5 p-6 md:col-span-2 md:p-12">
+      <motion.div
+        ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={containerVariants}
+        className="col-span-5 p-6 md:col-span-2 md:p-12"
+      >
         <Image
-          className="aspect-square w-full object-cover md:h-full"
-          src={"/assets/dummy_woman.jpg"}
+          className="aspect-square w-full object-cover object-top md:h-full"
+          src={"/antra.png"}
           alt="Antara Roy"
-          width={1000}
-          height={1000}
+          width={700}
+          height={700}
         />
-      </div>
+      </motion.div>
 
-      <div className="col-span-5 w-full px-6 font-cormorantGaramond md:col-span-3 md:py-12 md:pr-10">
-        <motion.h2
-          className="text-4xl font-medium"
-          ref={ref}
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-        >
+      <motion.div
+        className="col-span-5 w-full px-6 font-cormorantGaramond md:col-span-3 md:py-12 md:pr-10"
+        initial="hidden"
+        animate={controls}
+        variants={containerVariants}
+      >
+        <motion.h2 className="text-4xl font-medium" variants={itemVariants}>
           About Us
         </motion.h2>
         <motion.p
           className="text- mt-2 max-w-screen-lg pr-0 font-inter font-light"
-          ref={ref}
-          transition={{ delay: 0.5 }}
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
+          variants={itemVariants}
         >
           Founded by Antara Roy in 2003, AR Design Studio in Kolkata is driven
           by a passion for art and a dedication to creating beautiful,
@@ -83,24 +98,16 @@ export default function AboutUs() {
         </motion.p>
         <motion.h2
           className="mt-8 text-4xl font-medium"
-          ref={ref}
-          initial="hidden"
-          animate={controls}
-          transition={{ delay: 0.75 }}
-          variants={containerVariants}
+          variants={itemVariants}
         >
           What makes us different?
         </motion.h2>
-        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <motion.div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {features.map((feature) => (
             <motion.div
               key={feature.heading}
               className="col-span-1 h-full space-y-1 font-inter"
-              ref={ref}
-              initial="hidden"
-              animate={controls}
-              variants={containerVariants}
-              transition={{ delay: 1 }}
+              variants={itemVariants}
             >
               <h3 className="font-cormorantGaramond text-2xl font-semibold">
                 {feature.heading}
@@ -108,8 +115,29 @@ export default function AboutUs() {
               <p className="font-light">{feature.description}</p>
             </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+        <motion.h2
+          className="mt-8 text-4xl font-medium"
+          variants={itemVariants}
+        >
+          Our Team
+        </motion.h2>
+        <motion.div
+          className="mt-2 text-base font-inter font-light"
+          variants={itemVariants}
+        >
+          <p>
+            At AR Design Studio, our vibrant team thrives on passion and
+            dedication, featuring:
+          </p>
+          <ul className="list-disc ml-4 mt-2">
+            <li>Workers</li>
+            <li>Supervisor</li>
+            <li>Vaastu Consultant</li>
+            <li>Interior Designer</li>
+          </ul>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
