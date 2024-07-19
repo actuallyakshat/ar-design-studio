@@ -53,7 +53,7 @@ export default function ContactForm() {
   const [sentStatus, setSentStatus] = useState("");
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -101,7 +101,7 @@ export default function ContactForm() {
       animate="visible"
       variants={containerVariants}
       onSubmit={handleSubmit}
-      className="mt-4 flex w-full max-w-lg flex-col gap-3 font-inter font-extralight"
+      className="mt-2 flex w-full max-w-lg flex-col gap-3 font-inter font-extralight"
     >
       <div>
         <motion.h1
