@@ -50,10 +50,10 @@ export default function Navbar() {
             <Link
               href={item.href}
               key={index}
-              className="group relative font-inter font-light"
+              className="group relative font-inter hover:text-alternative hover:font-medium transition-all font-light"
             >
               {item.name}
-              <div className="absolute -bottom-2 z-[101] h-[2px] w-full origin-left scale-x-0 bg-alternative transition-transform duration-300 group-hover:scale-x-100"></div>
+              {/* <div className="absolute -bottom-2 z-[101] h-[2px] w-full origin-left scale-x-0 bg-alternative transition-transform duration-300 group-hover:scale-x-100"></div> */}
             </Link>
           ))}
         </div>

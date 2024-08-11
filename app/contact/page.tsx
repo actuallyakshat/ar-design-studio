@@ -4,19 +4,15 @@ import Image from "next/image";
 
 export default function Contact() {
   return (
-    <section className="flex min-h-screen w-full items-center justify-center font-cormorantGaramond pt-16 lg:grid lg:grid-cols-12">
-      <div className="flex w-full flex-col items-center justify-center px-4 pb-8 pt-16 lg:col-span-5 lg:pb-0 lg:pt-0">
-        <ContactForm />
+    <section className="w-full items-center justify-center font-cormorantGaramond pt-16">
+      <div className="relative flex h-96 items-center justify-center bg-[url('/assets/contactbg.jpg')] bg-cover bg-[center_center]">
+        <div className="absolute h-full w-full bg-black/40"></div>
+        <h1 className="z-[10] font-cormorantGaramond text-7xl text-background">
+          Contact Us
+        </h1>
       </div>
-      <div className="hidden h-screen w-full lg:col-span-7 lg:flex">
-        <Image
-          loading="eager"
-          alt=""
-          src={"/assets/contact1.jpg"}
-          width={4000}
-          height={4000}
-          className="w-full h-full object-cover"
-        />
+      <div className="flex w-full flex-col items-center justify-center px-4 my-16">
+        <ContactForm />
       </div>
     </section>
   );
