@@ -1,13 +1,14 @@
-import AboutUs from "./_components/AboutUs";
+"use client";
+import React, { useRef } from "react";
 import HeroSection from "./_components/HeroSection";
-import Testimonials from "./_components/Testimonials";
-
-export default function Home() {
+import useScrollSnap from "react-use-scroll-snap";
+export default function LandingPage() {
+  const scrollRef = useRef(null);
+  useScrollSnap({ ref: scrollRef, duration: 1000 });
   return (
-    <main className="relative flex h-full min-h-screen flex-col items-center justify-center scroll-smooth">
+    <div ref={scrollRef} className="">
       <HeroSection />
-      <AboutUs />
-      <Testimonials />
-    </main>
+      <HeroSection />
+    </div>
   );
 }

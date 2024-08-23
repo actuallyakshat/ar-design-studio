@@ -38,6 +38,9 @@ dependencies:
   react-dom:
     specifier: ^18
     version: 18.3.1(react@18.3.1)
+  react-use-scroll-snap:
+    specifier: ^1.0.0
+    version: 1.0.0(react@18.3.1)
   tailwind-merge:
     specifier: ^2.3.0
     version: 2.3.0
@@ -2650,6 +2653,15 @@ packages:
       tslib: 2.6.3
     dev: false
 
+  /react-use-scroll-snap@1.0.0(react@18.3.1):
+    resolution: {integrity: sha512-oUt0+yuRh1qrBfVl2TfugM8pBq/d7mWZnCtSfPJesZmYIjoyWJM5mbMC2MtSWUR+/fT0GURmk49fkLozwmUu5Q==}
+    peerDependencies:
+      react: '>=18.2.0'
+    dependencies:
+      react: 18.3.1
+      tweezer.js: 1.5.0
+    dev: false
+
   /react@18.3.1:
     resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
     engines: {node: '>=0.10.0'}
@@ -3050,6 +3062,10 @@ packages:
 
   /tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
+    dev: false
+
+  /tweezer.js@1.5.0:
+    resolution: {integrity: sha512-aSiJz7rGWNAQq7hjMK9ZYDuEawXupcCWgl3woQQSoDP2Oh8O4srWb/uO1PzzHIsrPEOqrjJ2sUb9FERfzuBabQ==}
     dev: false
 
   /type-check@0.4.0:

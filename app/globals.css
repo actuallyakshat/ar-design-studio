@@ -87,3 +87,11 @@ input:-webkit-autofill:active {
   opacity: 0;
   animation: fadeIn 0.3s ease-in-out forwards;
 }
+
+.landing-section {
+  @apply snap-center h-[100dvh];
+}
+
+html {
+  scroll-behavior: smooth;
+}

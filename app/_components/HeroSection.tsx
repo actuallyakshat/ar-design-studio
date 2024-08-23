@@ -1,38 +1,30 @@
-"use client";
-import { FadeText } from "@/components/magicui/fade-text";
-import WordsFadeIn from "@/components/magicui/word-fade-in";
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { ChevronDown } from "lucide-react";
+
+import React from "react";
+import HomeNavigation from "./HomeNavigation";
+
 export default function HeroSection() {
   return (
-    <section className="relative flex min-h-screen w-full items-center justify-center bg-[url('/assets/hero3.jpg')] bg-cover bg-center bg-no-repeat px-5 pb-10 md:block">
-      <div className="absolute inset-0 bg-black/20" />
-      <div className="z-[10] flex h-full w-full flex-col items-center gap-1 font-cormorantGaramond">
-        <WordsFadeIn
-          words="Elegant Interiors Tailored to Your Vision"
-          className="text-center font-cormorantGaramond text-5xl font-normal leading-[3.5rem] text-background md:mt-56 md:text-7xl"
-        />
-        <motion.p
-          className="z-[3] mx-auto max-w-4xl text-center font-cormorantGaramond text-xl text-background"
-          initial={{ opacity: 0 }}
-          animate={{ x: ["-10%", "0%"], opacity: [0, 1] }}
-          transition={{ duration: 1, type: "just", delay: 0.5 }}
-          viewport={{ once: true }}
-        >
-          At <span className="font-bold">AR Design Studio</span>, we believe in
-          creating spaces that not only look beautiful but also feel like home.
-          Our bespoke design solutions are tailored to fit your lifestyle and
-          taste, ensuring every project is unique and personal.
-        </motion.p>
-        <motion.button
-          className="borer-background z-[3] mt-4 border px-4 py-2 text-lg font-bold text-white transition-colors duration-500 hover:bg-background hover:text-black"
-          initial={{ opacity: 0 }}
-          animate={{ x: ["-30%", "0%"], opacity: [0, 1] }}
-          transition={{ duration: 1, type: "just", delay: 0.9 }}
-          viewport={{ once: true }}
-        >
-          <Link href={"/contact"}>Contact us</Link>
-        </motion.button>
+    <section className="h-[100dvh] bg-[url('/assets/hero3.jpg')] bg-cover relative flex flex-col">
+      <div className="absolute inset-0 z-[1] w-full h-full bg-black/[0.65]"></div>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-[15]">
+        <ChevronDown className="stroke-white stroke-1 size-12 animate-bounce" />
+      </div>
+      <HomeNavigation />
+
+      <div className="flex-1 w-full max-w-screen-xl flex flex-col gap-2 items-center justify-center relative z-[20] mx-auto text-white">
+        <h1 className="text-7xl font-light font-cormorantGaramond text-center leading-[1.2]">
+          Elegant Interiors Tailored To Your Vision
+        </h1>
+        <p className="text-center text-xl max-w-screen-lg font-light font-cormorantGaramond">
+          At AR Design Studio, we believe in creating spaces that not only look
+          beautiful but also feel like home. Our bespoke design solutions are
+          tailored to fit your lifestyle and taste, ensuring every project is
+          unique and personal.
+        </p>
+        <button className="border border-background text-xl font-cormorantGaramond font-medium hover:bg-background hover:text-black transition-colors text-back px-6 py-2 mt-3 rounded-full duration-500 ease-in-out">
+          Contact Us
+        </button>
       </div>
     </section>
   );

@@ -34,7 +34,7 @@ const navItems = [
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 z-[49] flex h-16 w-full items-center justify-center border-b border-zinc-300 bg-background px-4 font-cormorantGaramond">
+    <nav className="flex h-16 w-full items-center justify-center px-4 font-cormorantGaramond">
       <div className="flex h-full w-full max-w-screen-xl items-center justify-between">
         <Link href={"/"}>
           <Image

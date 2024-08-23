@@ -39,9 +39,7 @@ export default function RootLayout({
       <body
         className={` ${playfairDisplay.variable} ${inter.variable} ${cormorantGaramond.variable} bg-background`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <div className="flex flex-col">{children}</div>
       </body>
     </html>
   );
