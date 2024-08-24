@@ -101,19 +101,16 @@ export default function ContactForm() {
       animate="visible"
       variants={containerVariants}
       onSubmit={handleSubmit}
-      className="mt-2 flex w-full max-w-lg flex-col gap-3 font-inter font-extralight"
+      className="mt-2 flex w-full max-w-lg flex-col gap-3 font-inter font-light"
     >
       <div>
         <motion.h1
-          className="font-cormorantGaramond text-4xl text-alternative"
+          className="font-cormorantGaramond font-medium text-4xl text-alternative text-center"
           variants={itemVariants}
         >
-          Contact Us
+          Get in Touch
         </motion.h1>
-        <motion.p
-          className="font-cormorantGaramond text-lg"
-          variants={itemVariants}
-        >
+        <motion.p className="font-inter text-center" variants={itemVariants}>
           Got any questions for us? We&apos;d love to hear from you!
         </motion.p>
       </div>

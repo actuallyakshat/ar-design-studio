@@ -11,7 +11,7 @@ export default function Contact() {
           Contact Us
         </h1>
       </div>
-      <div className="flex w-full flex-col items-center justify-center px-4 my-16">
+      <div className="flex w-full flex-col items-center justify-center px-4 my-12">
         <ContactForm />
       </div>
     </section>

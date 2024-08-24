@@ -1,17 +1,17 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 import { Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   {
@@ -33,8 +33,14 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  if (pathname === "/") {
+    return null;
+  }
+
   return (
-    <nav className="flex h-16 w-full items-center justify-center px-4 font-cormorantGaramond">
+    <nav className="flex fixed z-[100] bg-background h-16 w-full items-center justify-center px-4 font-cormorantGaramond">
       <div className="flex h-full w-full max-w-screen-xl items-center justify-between">
         <Link href={"/"}>
           <Image

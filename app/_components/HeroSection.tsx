@@ -5,7 +5,7 @@ import HomeNavigation from "./HomeNavigation";
 
 export default function HeroSection() {
   return (
-    <section className="h-[100dvh] bg-[url('/assets/hero3.jpg')] bg-cover relative flex flex-col">
+    <section className="section bg-[url('/assets/hero3.jpg')] bg-cover relative flex flex-col">
       <div className="absolute inset-0 z-[1] w-full h-full bg-black/[0.65]"></div>
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-[15]">
         <ChevronDown className="stroke-white stroke-1 size-12 animate-bounce" />

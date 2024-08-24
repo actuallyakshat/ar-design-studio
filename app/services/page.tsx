@@ -59,7 +59,9 @@ export default function Services() {
               </p>
             </div>
             <div
-              className={`col-span-1 lg:col-span-2 ${index % 2 == 0 ? "order-1 lg:order-2" : "order-1"}`}
+              className={`col-span-1 lg:col-span-2 ${
+                index % 2 == 0 ? "order-1 lg:order-2" : "order-1"
+              }`}
             >
               <Image
                 src={service.imageUrl}
