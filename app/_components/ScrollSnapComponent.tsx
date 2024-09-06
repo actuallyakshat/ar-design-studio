@@ -1,23 +1,24 @@
 "use client";
+
 import ReactFullpage from "@fullpage/react-fullpage";
+import { NewAboutUs, OurTeam, WhatMakesUsDifferent } from "./AboutUs";
 import HeroSection from "./HeroSection";
-export default function FullPageComponent() {
+
+export default function ScrollSnapComponent() {
   return (
     <ReactFullpage
-      // Fullpage.js configuration
-      scrollingSpeed={1000} // Adjust scrolling speed here
-      sectionsColor={["#ff5f45", "#0798ec", "#fc6c7c", "#435b71"]}
-      navigation={true}
+      scrollingSpeed={1000}
       credits={{
         enabled: false,
       }}
+      verticalCentered={false}
       render={({ state, fullpageApi }) => {
         return (
-          <div>
+          <div className="scrollbar-none">
             <HeroSection />
-            <HeroSection />
-            <HeroSection />
-            <HeroSection />
+            <NewAboutUs />
+            <WhatMakesUsDifferent />
+            <OurTeam />
           </div>
         );
       }}

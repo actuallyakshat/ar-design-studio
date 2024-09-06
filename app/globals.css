@@ -7,6 +7,8 @@
     --background: 45 12% 93%;
     --foreground: 240 10% 3.9%;
     --alternative: 27 18% 24%;
+    --darkBrown: 23 27% 6%;
+    --mint: 59 36% 77%;
 
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
@@ -97,7 +99,17 @@ html {
 }
 
 .section {
-  min-height: 100dvh;
+  height: 100dvh !important;
+}
+
+.fp-is-overflow .fp-overflow.fp-auto-height,
+.fp-is-overflow .fp-overflow.fp-auto-height-responsive,
+.fp-is-overflow > .fp-overflow {
+  overflow-y: hidden !important;
+}
+
+.fp-overflow {
+  height: 100dvh !important;
 }
 
 div.fp-watermark {
@@ -107,4 +119,9 @@ div.fp-watermark {
 #fp-nav ul li a span,
 .fp-slidesNav ul li a span {
   display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

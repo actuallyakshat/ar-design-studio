@@ -5,14 +5,14 @@ import HomeNavigation from "./HomeNavigation";
 
 export default function HeroSection() {
   return (
-    <section className="section bg-[url('/assets/hero3.jpg')] bg-cover relative flex flex-col">
+    <section className="section bg-[url('/assets/hero3.jpg')] bg-cover relative size-full flex flex-col items-center justify-center">
       <div className="absolute inset-0 z-[1] w-full h-full bg-black/[0.65]"></div>
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-[15]">
         <ChevronDown className="stroke-white stroke-1 size-12 animate-bounce" />
       </div>
       <HomeNavigation />
 
-      <div className="flex-1 w-full max-w-screen-xl flex flex-col gap-2 items-center justify-center relative z-[20] mx-auto text-white">
+      <div className="flex-1 w-full h-full max-w-screen-xl flex flex-col gap-2 items-center justify-center relative z-[20] mx-auto text-white">
         <h1 className="text-7xl font-light font-cormorantGaramond text-center leading-[1.2]">
           Elegant Interiors Tailored To Your Vision
         </h1>

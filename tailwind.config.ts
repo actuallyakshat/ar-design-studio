@@ -30,6 +30,9 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         alternative: "hsl(var(--alternative))",
+        darkBrown: "hsl(var(--darkBrown))",
+        mint: "hsl(var(--mint))",
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

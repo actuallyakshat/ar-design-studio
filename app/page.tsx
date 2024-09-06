@@ -1,9 +1,9 @@
-import FullPageComponent from "./_components/ScrollSnapComponent";
+import ScrollSnapComponent from "./_components/ScrollSnapComponent";
 
 export default function LandingPage() {
   return (
-    <div>
-      <FullPageComponent />
-    </div>
+    <>
+      <ScrollSnapComponent />
+    </>
   );
 }
