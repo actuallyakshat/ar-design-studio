@@ -53,7 +53,7 @@ export default function ContactForm() {
   const [sentStatus, setSentStatus] = useState("");
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -105,12 +105,12 @@ export default function ContactForm() {
     >
       <div>
         <motion.h1
-          className="font-cormorantGaramond font-medium text-4xl text-alternative text-center"
+          className="text-center font-cormorantGaramond text-4xl font-medium text-alternative"
           variants={itemVariants}
         >
           Get in Touch
         </motion.h1>
-        <motion.p className="font-inter text-center" variants={itemVariants}>
+        <motion.p className="text-center font-inter" variants={itemVariants}>
           Got any questions for us? We&apos;d love to hear from you!
         </motion.p>
       </div>

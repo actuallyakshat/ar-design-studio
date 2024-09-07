@@ -36,7 +36,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex fixed z-[100] bg-background h-16 w-full items-center justify-center px-4">
+    <nav className="fixed z-[100] flex h-16 w-full items-center justify-center bg-background px-4">
       <div className="flex h-full w-full max-w-screen-xl items-center justify-between">
         <Link href={"/"}>
           <Image
@@ -52,7 +52,7 @@ export default function Navbar() {
             <Link
               href={item.href}
               key={index}
-              className="group relative font-inter hover:text-alternative hover:font-medium transition-all font-light"
+              className="group relative font-inter font-light transition-all hover:font-medium hover:text-alternative"
             >
               {item.name}
             </Link>
@@ -60,7 +60,7 @@ export default function Navbar() {
         </div>
         <Link
           href={"/contact"}
-          className="group relative font-inter hover:text-alternative hover:font-medium transition-all font-light"
+          className="group relative font-inter font-light transition-all hover:font-medium hover:text-alternative"
         >
           Contact
         </Link>
@@ -71,11 +71,13 @@ export default function Navbar() {
 }
 
 export function MobileNavbar() {
+  const pathname = usePathname();
+  const isHomeRoute = pathname === "/";
   const [open, setOpen] = useState(false);
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger className="md:hidden">
-        <Menu />
+      <SheetTrigger className="z-[49] md:hidden">
+        <Menu className={`${isHomeRoute ? "stroke-white" : "stroke-black"}`} />
       </SheetTrigger>
       <SheetContent className="w-full max-w-full">
         <SheetHeader>

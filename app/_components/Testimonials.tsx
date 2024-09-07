@@ -37,8 +37,8 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <div className="flex w-full flex-col items-center justify-center bg-alternative pb-10 pt-8 px-4">
-      <h2 className="mb-4 font-cormorantGaramond text-3xl text-center md:text-4xl text-white">
+    <div className="flex w-full flex-col items-center justify-center bg-alternative px-4 pb-10 pt-8">
+      <h2 className="mb-4 text-center font-cormorantGaramond text-3xl text-white md:text-4xl">
         What our clients say about us
       </h2>
       <Carousel className="max-w-[95%] md:max-w-3xl" opts={{ loop: true }}>

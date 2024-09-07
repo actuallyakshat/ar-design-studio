@@ -26,13 +26,13 @@ const itemVariants = {
 export default function AboutUs() {
   const controls = useAnimation();
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
 
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [controls, isInView]);
+  // useEffect(() => {
+  //   if (isInView) {
+  //     controls.start("visible");
+  //   }
+  // }, [controls, isInView]);
 
   return (
     <section className="section grid w-full grid-cols-5 pb-8 md:pb-4 lg:pb-0">
@@ -89,7 +89,7 @@ export default function AboutUs() {
               className="col-span-1 h-full space-y-1 font-inter"
               variants={itemVariants}
             >
-              <h3 className="font-cormorantGaramond text-2xl font-semibold">
+              <h3 className="font-cormorantGaramond text-3xl font-semibold">
                 {feature.heading}
               </h3>
               <p className="font-light">{feature.description}</p>
@@ -103,14 +103,14 @@ export default function AboutUs() {
           Our Team
         </motion.h2>
         <motion.div
-          className="mt-2 text-base font-inter font-light"
+          className="mt-2 font-inter text-base font-light"
           variants={itemVariants}
         >
           <p>
             At AR Design Studio, our vibrant team thrives on passion and
             dedication, featuring:
           </p>
-          <ul className="list-disc ml-4 mt-2">
+          <ul className="ml-4 mt-2 list-disc">
             <li>Workers</li>
             <li>Supervisor</li>
             <li>Vaastu Consultant</li>
@@ -124,18 +124,18 @@ export default function AboutUs() {
 
 export function NewAboutUs() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
+  const isInView = useInView(ref, { once: true });
   return (
-    <section className="section !block max-w-screen-xl mx-auto pt-16">
+    <section className="section mx-auto !block max-w-screen-xl px-5 pt-16">
       <FadeUpText number={"01"}>About Us</FadeUpText>
       <hr className="mt-2" />
-      <div className="grid grid-cols-5 gap-14 pt-12">
-        <div className="rounded-xl shadow-xl overflow-hidden col-span-2 h-full">
+      <div className="flex grid-cols-5 flex-col gap-14 pt-12 md:grid">
+        <div className="col-span-2 h-full overflow-hidden rounded-xl shadow-xl">
           <motion.img
             initial={{ scale: 1.2 }}
             animate={isInView ? { scale: 1 } : { scale: 1.2 }}
             transition={{ duration: 1.5, delay: 0.2, ease: "easeInOut" }}
-            className="object-cover object-top w-full h-full"
+            className="h-full w-full object-cover object-top"
             src="/antra.png"
             alt="Antara Roy"
           />
@@ -145,9 +145,9 @@ export function NewAboutUs() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.6, delay: 0.6, ease: "easeInOut" }}
-          className="w-full col-span-3"
+          className="col-span-3 w-full"
         >
-          <p className=" font-inter italic text-lg">
+          <p className="font-inter text-lg italic">
             Founded by Antara Roy in 2003, AR Design Studio in Kolkata is driven
             by a passion for art and a dedication to creating beautiful,
             functional spaces. Antara Roy, certified by Birla Institute of
@@ -159,7 +159,7 @@ export function NewAboutUs() {
             the country. She has successfully completed numerous projects with a
             reputation for excellence and attention to detail.
           </p>
-          <button className="font-inter font-light uppercase duration-500 rounded-full hover:bg-alternative hover:text-white px-6 py-3 mt-8 flex items-center justify-center gap-3 transition-colors border border-alternative">
+          <button className="mx-auto mt-8 flex items-center justify-center gap-3 rounded-full border border-alternative px-6 py-3 font-inter font-light uppercase transition-colors duration-500 hover:bg-alternative hover:text-white md:mx-0">
             Contact Us <ArrowRight />
           </button>
         </motion.div>
@@ -193,20 +193,20 @@ const features = [
 
 export function WhatMakesUsDifferent() {
   return (
-    <section className="section overflow-hidden bg-darkBrown !block">
-      <div className="pt-16 h-full max-w-screen-xl mx-auto">
+    <section className="section !block bg-darkBrown px-5">
+      <div className="mx-auto h-full max-w-screen-xl">
         <div className="text-white">
           <FadeUpText number={"02"}>What makes us different?</FadeUpText>
         </div>
         <hr className="mt-2" />
-        <div className="grid grid-cols-5 gap-8 pt-12">
-          <div className="col-span-3 text-white flex flex-col items-center gap-5">
+        <div className="flex grid-cols-5 flex-col gap-8 pt-6 md:grid md:pt-12">
+          <div className="col-span-3 flex flex-col items-center gap-5 text-white">
             {features.slice(0, 2).map((feature, index) => (
               <div key={index}>
-                <h3 className="font-cormorantGaramond text-4xl font-semibold text-mint">
+                <h3 className="font-cormorantGaramond text-3xl md:text-4xl font-semibold text-mint">
                   - {feature.heading}
                 </h3>
-                <p className="font-light font-inter py-1">
+                <p className="py-1 font-inter font-light">
                   {feature.description}
                 </p>
               </div>
@@ -217,24 +217,24 @@ export function WhatMakesUsDifferent() {
             alt="wmad"
             width={1080}
             height={1080}
-            className="aspect-square object-cover col-span-2 max-h-[20rem] rounded-3xl"
+            className="col-span-2 aspect-square max-h-[20rem] rounded-3xl object-cover"
           />
         </div>
-        <div className="grid grid-cols-5 gap-12 pt-16">
+        <div className="flex grid-cols-5 flex-col-reverse gap-12 pt-6 md:grid md:pt-16">
           <Image
             src={"/assets/wmad/wmad-2.jpg"}
             alt="wmad"
             width={1080}
             height={1080}
-            className="aspect-square object-cover col-span-2 max-h-[20rem] rounded-3xl"
+            className="col-span-2 aspect-square max-h-[20rem] rounded-3xl object-cover"
           />
-          <div className="col-span-3 text-white flex flex-col items-center gap-5">
+          <div className="col-span-3 flex flex-col items-center gap-5 text-white">
             {features.slice(2, 4).map((feature, index) => (
               <div key={index}>
-                <h3 className="font-cormorantGaramond text-4xl font-semibold text-mint">
+                <h3 className="font-cormorantGaramond text-3xl md:text-4xl font-semibold text-mint">
                   - {feature.heading}
                 </h3>
-                <p className="font-light font-inter py-1">
+                <p className="py-1 font-inter font-light">
                   {feature.description}
                 </p>
               </div>
@@ -275,13 +275,13 @@ const team = [
 
 export function OurTeam() {
   return (
-    <section className="section pt-16 bg-darkBrown !block h-full">
-      <div className="!pb-10 h-full max-w-screen-xl mx-auto">
+    <section className="section !block h-full bg-darkBrown !pt-0 px-5">
+      <div className="mx-auto h-full max-w-screen-xl !pb-10">
         <div className="text-white">
           <FadeUpText number={"03"}>Our Team</FadeUpText>
         </div>
         <hr className="mt-2" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-12">
+        <div className="grid grid-cols-1 gap-10 pt-12 md:grid-cols-2">
           {team.map((teamMember, index) => (
             <TeamMember key={index} {...teamMember} />
           ))}
@@ -301,15 +301,15 @@ function TeamMember({
   image: string;
 }) {
   return (
-    <div className="col-span-1 h-full flex flex-col space-y-1 text-white font-inter">
+    <div className="col-span-1 flex h-full flex-col space-y-1 font-inter text-white">
       <Image
         src={image}
         alt={heading}
         width={1080}
         height={1080}
-        className="aspect-video object-cover rounded-3xl max-h-[10rem]"
+        className="aspect-video max-h-[10rem] rounded-3xl object-cover"
       />
-      <h3 className="font-cormorantGaramond text-4xl text-mint font-semibold pt-2">
+      <h3 className="pt-2 font-cormorantGaramond text-4xl font-semibold text-mint">
         {heading}
       </h3>
       <p className="font-light">{description}</p>

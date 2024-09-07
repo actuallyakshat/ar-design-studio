@@ -1,9 +1,17 @@
-import ScrollSnapComponent from "./_components/ScrollSnapComponent";
+import {
+  NewAboutUs,
+  OurTeam,
+  WhatMakesUsDifferent,
+} from "./_components/AboutUs";
+import HeroSection from "./_components/HeroSection";
 
 export default function LandingPage() {
   return (
-    <>
-      <ScrollSnapComponent />
-    </>
+    <div>
+      <HeroSection />
+      <NewAboutUs />
+      <WhatMakesUsDifferent />
+      <OurTeam />
+    </div>
   );
 }

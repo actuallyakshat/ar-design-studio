@@ -32,7 +32,7 @@ export default function WordFadeIn({
       animate="visible"
       className={cn(
         "text-center tracking-[-0.02em] text-black drop-shadow-sm dark:text-white md:leading-[5rem]",
-        className
+        className,
       )}
     >
       {_words.map((word, i) => (

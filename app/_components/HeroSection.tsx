@@ -2,27 +2,28 @@ import { ChevronDown } from "lucide-react";
 
 import React from "react";
 import HomeNavigation from "./HomeNavigation";
+import { MobileNavbar } from "./Navbar";
 
 export default function HeroSection() {
   return (
-    <section className="section bg-[url('/assets/hero3.jpg')] bg-cover relative size-full flex flex-col items-center justify-center">
-      <div className="absolute inset-0 z-[1] w-full h-full bg-black/[0.65]"></div>
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-[15]">
-        <ChevronDown className="stroke-white stroke-1 size-12 animate-bounce" />
+    <section className="section relative flex size-full flex-col items-center justify-center bg-[url('/assets/hero3.jpg')] bg-cover px-6">
+      <div className="absolute inset-0 z-[1] h-full w-full bg-black/[0.65]"></div>
+      <div className="absolute bottom-4 left-1/2 z-[15] -translate-x-1/2">
+        <ChevronDown className="size-12 animate-bounce stroke-white stroke-1" />
       </div>
       <HomeNavigation />
 
-      <div className="flex-1 w-full h-full max-w-screen-xl flex flex-col gap-2 items-center justify-center relative z-[20] mx-auto text-white">
-        <h1 className="text-7xl font-light font-cormorantGaramond text-center leading-[1.2]">
+      <div className="relative z-[20] mx-auto flex h-full w-full max-w-screen-xl flex-1 flex-col items-center justify-center gap-2 text-white">
+        <h1 className="text-center font-cormorantGaramond text-4xl font-light leading-[1.2] lg:text-7xl">
           Elegant Interiors Tailored To Your Vision
         </h1>
-        <p className="text-center text-xl max-w-screen-lg font-light font-cormorantGaramond">
+        <p className="max-w-screen-lg text-center font-cormorantGaramond text-base font-light md:text-xl">
           At AR Design Studio, we believe in creating spaces that not only look
           beautiful but also feel like home. Our bespoke design solutions are
           tailored to fit your lifestyle and taste, ensuring every project is
           unique and personal.
         </p>
-        <button className="border border-background text-xl font-cormorantGaramond font-medium hover:bg-background hover:text-black transition-colors text-back px-6 py-2 mt-3 rounded-full duration-500 ease-in-out">
+        <button className="text-back mt-3 rounded-full border border-background px-6 py-2 font-cormorantGaramond text-xl font-medium transition-colors duration-500 ease-in-out hover:bg-background hover:text-black">
           Contact Us
         </button>
       </div>
