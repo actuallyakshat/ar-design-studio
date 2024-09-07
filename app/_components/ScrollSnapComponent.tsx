@@ -12,9 +12,10 @@ export default function ScrollSnapComponent() {
         enabled: false,
       }}
       verticalCentered={false}
+      scrollOverflow={true}
       render={({ state, fullpageApi }) => {
         return (
-          <div className="scrollbar-none">
+          <div className="">
             <HeroSection />
             <NewAboutUs />
             <WhatMakesUsDifferent />

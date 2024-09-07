@@ -26,10 +26,6 @@ const navItems = [
     name: "Portfolio",
     href: "/portfolio",
   },
-  {
-    name: "Contact",
-    href: "/contact",
-  },
 ];
 
 export default function Navbar() {
@@ -40,7 +36,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex fixed z-[100] bg-background h-16 w-full items-center justify-center px-4 font-cormorantGaramond">
+    <nav className="flex fixed z-[100] bg-background h-16 w-full items-center justify-center px-4">
       <div className="flex h-full w-full max-w-screen-xl items-center justify-between">
         <Link href={"/"}>
           <Image
@@ -59,10 +55,15 @@ export default function Navbar() {
               className="group relative font-inter hover:text-alternative hover:font-medium transition-all font-light"
             >
               {item.name}
-              {/* <div className="absolute -bottom-2 z-[101] h-[2px] w-full origin-left scale-x-0 bg-alternative transition-transform duration-300 group-hover:scale-x-100"></div> */}
             </Link>
           ))}
         </div>
+        <Link
+          href={"/contact"}
+          className="group relative font-inter hover:text-alternative hover:font-medium transition-all font-light"
+        >
+          Contact
+        </Link>
         <MobileNavbar />
       </div>
     </nav>
