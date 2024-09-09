@@ -26,15 +26,13 @@ const navItems = [
     name: "Portfolio",
     href: "/portfolio",
   },
+  {
+    name: "Contact",
+    href: "/contact",
+  },
 ];
 
 export default function Navbar() {
-  const pathname = usePathname();
-
-  if (pathname === "/") {
-    return null;
-  }
-
   return (
     <nav className="fixed z-[100] flex h-16 w-full items-center justify-center bg-background px-4">
       <div className="flex h-full w-full max-w-screen-xl items-center justify-between">
@@ -58,12 +56,7 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-        <Link
-          href={"/contact"}
-          className="group relative font-inter font-light transition-all hover:font-medium hover:text-alternative"
-        >
-          Contact
-        </Link>
+
         <MobileNavbar />
       </div>
     </nav>

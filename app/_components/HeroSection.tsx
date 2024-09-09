@@ -11,7 +11,7 @@ export default function HeroSection() {
       <div className="absolute bottom-4 left-1/2 z-[15] -translate-x-1/2">
         <ChevronDown className="size-12 animate-bounce stroke-white stroke-1" />
       </div>
-      <HomeNavigation />
+      {/* <HomeNavigation /> */}
 
       <div className="relative z-[20] mx-auto flex h-full w-full max-w-screen-xl flex-1 flex-col items-center justify-center gap-2 text-white">
         <h1 className="text-center font-cormorantGaramond text-4xl font-light leading-[1.2] lg:text-7xl">
