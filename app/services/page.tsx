@@ -32,8 +32,8 @@ const services = [
 export default function Services() {
   return (
     <main className="w-full py-16">
-      <div className="relative flex h-96 items-center justify-center bg-[url('/assets/services_bg.jpg')] bg-cover bg-[center_45%]">
-        <div className="absolute h-full w-full bg-black/40"></div>
+      <div className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/1.5.jpg')] bg-cover bg-[center_60%]">
+        <div className="absolute h-full w-full bg-black/60"></div>
         <h1 className="z-[10] font-cormorantGaramond text-7xl text-background">
           Our Services
         </h1>

@@ -35,7 +35,7 @@ const socialItems = [
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t bg-background pt-6">
+    <footer className="w-full border-t bg-background py-6">
       <div className="container mx-auto grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-5">
         <div className="col-span-1 lg:col-span-3">
           <Image
@@ -85,11 +85,11 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="mt-4 flex w-full items-center justify-center bg-alternative p-3">
+      {/* <div className="mt-4 flex w-full items-center justify-center bg-alternative p-3">
         <h2 className="font-medium text-white">
           AR Design Studio. All Rights Reserved
         </h2>
-      </div>
+      </div> */}
     </footer>
   );
 }

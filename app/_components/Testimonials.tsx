@@ -37,37 +37,43 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <div className="flex w-full flex-col items-center justify-center bg-alternative px-4 pb-10 pt-8">
-      <h2 className="mb-4 text-center font-cormorantGaramond text-3xl text-white md:text-4xl">
-        What our clients say about us
-      </h2>
-      <Carousel className="max-w-[95%] md:max-w-3xl" opts={{ loop: true }}>
-        <CarouselContent className="">
-          {testimonials.map((testimonial, index) => (
-            <CarouselItem key={index}>
-              <TestimonialCard
-                name={testimonial.name}
-                quote={testimonial.quote}
-              />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <div className="hidden lg:block">
-          <CarouselPrevious />
-          <CarouselNext />
-        </div>
-      </Carousel>
+    <div className="mx-auto grid min-h-[50vh] w-full max-w-screen-2xl grid-cols-6 items-center justify-between gap-8 pb-10 pt-8">
+      <div className="col-span-6 text-center xl:col-span-3 xl:text-left">
+        <h2 className="mb-2 font-cormorantGaramond text-4xl sm:text-5xl">
+          What our clients say about us
+        </h2>
+        <p className="font-cormorantGaramond text-xl sm:text-2xl">
+          A few testimonials from our satisfied clients.
+        </p>
+      </div>
+
+      <div className="col-span-6 flex h-full items-center justify-end rounded-xl xl:col-span-3">
+        <Carousel className="max-w-[95%] md:max-w-3xl" opts={{ loop: true }}>
+          <CarouselContent className="">
+            {testimonials.map((testimonial, index) => (
+              <CarouselItem key={index}>
+                <TestimonialCard
+                  name={testimonial.name}
+                  quote={testimonial.quote}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
     </div>
   );
 }
 
 function TestimonialCard({ quote, name }: { quote: string; name: string }) {
   return (
-    <div className="flex h-full select-none flex-col items-center justify-center bg-background p-6">
+    <div className="flex h-full select-none flex-col items-center justify-center rounded-3xl bg-alternative px-6 py-10 text-white">
       <i className="mx-auto">
-        <Quote className="rotate-180 border-none fill-alternative stroke-none" />
+        <Quote className="rotate-180 border-none fill-alternative stroke-white" />
       </i>
-      <p className="mb-2 mt-4 text-center font-inter font-light">{quote}</p>
+      <p className="mb-2 mt-4 text-center font-inter text-xl font-light">
+        {quote}
+      </p>
       <h4 className="font-medium">{name}</h4>
     </div>
   );

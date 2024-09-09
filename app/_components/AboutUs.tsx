@@ -150,14 +150,21 @@ export function NewAboutUs() {
           <p className="font-inter text-lg italic">
             Founded by Antara Roy in 2003, AR Design Studio in Kolkata is driven
             by a passion for art and a dedication to creating beautiful,
-            functional spaces. Antara Roy, certified by Birla Institute of
+            functional spaces. Antara Roy, certified by the Birla Institute of
             Liberal Arts and Management Sciences, brings a love for art and a
-            keen eye for detail to every project. Helping people build homes
-            they love and creating aesthetically pleasing, functional spaces
-            that reflect client&apos;s personalities and lifestyles. Antara is
-            the sole designer, collaborating with skilled workers from across
-            the country. She has successfully completed numerous projects with a
-            reputation for excellence and attention to detail.
+            keen eye for detail to every project.
+            <br />
+            <br />
+            The studio specializes in helping people build homes they love by
+            creating aesthetically pleasing, functional spaces that reflect the
+            client&apos;s personality and lifestyle. Antara is the sole
+            designer, and she collaborates with skilled workers from across the
+            country to bring her visions to life.
+            <br />
+            <br />
+            Over the years, she has successfully completed numerous projects,
+            earning a reputation for excellence and meticulous attention to
+            detail.
           </p>
           <button className="hover: mx-auto mt-8 flex items-center justify-center gap-3 rounded-full border border-alternative px-6 py-3 font-inter font-light uppercase transition-colors duration-500 hover:bg-alternative hover:text-white md:mx-0">
             Contact Us <ArrowRight />
@@ -213,7 +220,7 @@ export function WhatMakesUsDifferent() {
             ))}{" "}
           </div>
           <Image
-            src={"/assets/wmad/wmad-1.jpg"}
+            src={"/assets/portfolio/1.1.jpg"}
             alt="wmad"
             width={1080}
             height={1080}
@@ -222,7 +229,7 @@ export function WhatMakesUsDifferent() {
         </div>
         <div className="flex grid-cols-5 flex-col-reverse gap-12 pt-6 md:grid md:pt-16">
           <Image
-            src={"/assets/wmad/wmad-2.jpg"}
+            src={"/assets/portfolio/1.4.jpg"}
             alt="wmad"
             width={1080}
             height={1080}

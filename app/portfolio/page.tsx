@@ -22,8 +22,8 @@ const siteImage = ["real-1.jpg"];
 export default function Portfolio() {
   return (
     <div className="h-full min-h-screen pb-16 pt-16">
-      <div className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/portfolio-header.jpg')] bg-cover bg-[center_75%]">
-        <div className="absolute h-full w-full bg-black/40"></div>
+      <div className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/1.6.jpg')] bg-cover bg-[center_83%]">
+        <div className="absolute h-full w-full bg-black/60"></div>
         <h1 className="z-[10] font-cormorantGaramond text-7xl text-background">
           Our Work
         </h1>
