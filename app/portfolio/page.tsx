@@ -17,7 +17,7 @@ const renders = [
   "3.2.jpg",
   "4.1.jpg",
 ];
-const siteImage = ["real-1.jpg", "real-2.jpg"];
+const siteImage = ["real-1.jpg"];
 
 export default function Portfolio() {
   return (

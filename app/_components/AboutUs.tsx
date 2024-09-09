@@ -126,8 +126,8 @@ export function NewAboutUs() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   return (
-    <section className="section mx-auto !block max-w-screen-xl px-5 pt-16">
-      <FadeUpText number={"01"}>About Us</FadeUpText>
+    <section className="mx-auto !block max-w-screen-xl px-5 pb-16 pt-16">
+      <FadeUpText>About Us</FadeUpText>
       <hr className="mt-2" />
       <div className="flex grid-cols-5 flex-col gap-14 pt-12 md:grid">
         <div className="col-span-2 h-full overflow-hidden rounded-xl shadow-xl">
@@ -159,7 +159,7 @@ export function NewAboutUs() {
             the country. She has successfully completed numerous projects with a
             reputation for excellence and attention to detail.
           </p>
-          <button className="mx-auto mt-8 flex items-center justify-center gap-3 rounded-full border border-alternative px-6 py-3 font-inter font-light uppercase transition-colors duration-500 hover:bg-alternative hover:text-white md:mx-0">
+          <button className="hover: mx-auto mt-8 flex items-center justify-center gap-3 rounded-full border border-alternative px-6 py-3 font-inter font-light uppercase transition-colors duration-500 hover:bg-alternative hover:text-white md:mx-0">
             Contact Us <ArrowRight />
           </button>
         </motion.div>
@@ -193,17 +193,17 @@ const features = [
 
 export function WhatMakesUsDifferent() {
   return (
-    <section className="section !block bg-darkBrown px-5">
+    <section className="section !block px-5">
       <div className="mx-auto h-full max-w-screen-xl">
-        <div className="text-white">
-          <FadeUpText number={"02"}>What makes us different?</FadeUpText>
+        <div className="">
+          <FadeUpText>What makes us different?</FadeUpText>
         </div>
         <hr className="mt-2" />
         <div className="flex grid-cols-5 flex-col gap-8 pt-6 md:grid md:pt-12">
-          <div className="col-span-3 flex flex-col items-center gap-5 text-white">
+          <div className="col-span-3 flex flex-col items-center gap-5">
             {features.slice(0, 2).map((feature, index) => (
               <div key={index}>
-                <h3 className="font-cormorantGaramond text-3xl md:text-4xl font-semibold text-mint">
+                <h3 className="font-cormorantGaramond text-3xl font-semibold md:text-4xl">
                   - {feature.heading}
                 </h3>
                 <p className="py-1 font-inter font-light">
@@ -228,10 +228,10 @@ export function WhatMakesUsDifferent() {
             height={1080}
             className="col-span-2 aspect-square max-h-[20rem] rounded-3xl object-cover"
           />
-          <div className="col-span-3 flex flex-col items-center gap-5 text-white">
+          <div className="col-span-3 flex flex-col items-center gap-5">
             {features.slice(2, 4).map((feature, index) => (
               <div key={index}>
-                <h3 className="font-cormorantGaramond text-3xl md:text-4xl font-semibold text-mint">
+                <h3 className="font-cormorantGaramond text-3xl font-semibold md:text-4xl">
                   - {feature.heading}
                 </h3>
                 <p className="py-1 font-inter font-light">
@@ -275,10 +275,10 @@ const team = [
 
 export function OurTeam() {
   return (
-    <section className="section !block h-full bg-darkBrown !pt-0 px-5">
+    <section className="section !block h-full px-5 !pt-0">
       <div className="mx-auto h-full max-w-screen-xl !pb-10">
-        <div className="text-white">
-          <FadeUpText number={"03"}>Our Team</FadeUpText>
+        <div>
+          <FadeUpText>Our Team</FadeUpText>
         </div>
         <hr className="mt-2" />
         <div className="grid grid-cols-1 gap-10 pt-12 md:grid-cols-2">
@@ -301,7 +301,7 @@ function TeamMember({
   image: string;
 }) {
   return (
-    <div className="col-span-1 flex h-full flex-col space-y-1 font-inter text-white">
+    <div className="col-span-1 flex h-full flex-col space-y-1 font-inter">
       <Image
         src={image}
         alt={heading}
@@ -309,7 +309,7 @@ function TeamMember({
         height={1080}
         className="aspect-video max-h-[10rem] rounded-3xl object-cover"
       />
-      <h3 className="pt-2 font-cormorantGaramond text-4xl font-semibold text-mint">
+      <h3 className="pt-2 font-cormorantGaramond text-4xl font-semibold">
         {heading}
       </h3>
       <p className="font-light">{description}</p>

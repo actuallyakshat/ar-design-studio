@@ -1,12 +1,8 @@
 import { ChevronDown } from "lucide-react";
 
-import React from "react";
-import HomeNavigation from "./HomeNavigation";
-import { MobileNavbar } from "./Navbar";
-
 export default function HeroSection() {
   return (
-    <section className="section relative flex size-full flex-col items-center justify-center bg-[url('/assets/hero3.jpg')] bg-cover px-6">
+    <section className="section relative flex size-full flex-col items-center justify-center bg-[url('/assets/portfolio/1.2.jpg')] bg-cover px-6">
       <div className="absolute inset-0 z-[1] h-full w-full bg-black/[0.65]"></div>
       <div className="absolute bottom-4 left-1/2 z-[15] -translate-x-1/2">
         <ChevronDown className="size-12 animate-bounce stroke-white stroke-1" />
