@@ -8,9 +8,11 @@ const CUTOFF = 6;
 export default function ImagesGrid({
   data,
   heading,
+  pathPrefix
 }: {
   data: string[];
   heading: string;
+  pathPrefix: string;
 }) {
   const [showMore, setShowMore] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
@@ -20,25 +22,25 @@ export default function ImagesGrid({
     <div className="pt-6">
       <h2 className="text-center font-cormorantGaramond text-4xl">{heading}</h2>
       <div className="mx-auto mt-3 h-[2px] w-[70px] bg-alternative"></div>
-      <div className="grid grid-cols-1 gap-4 py-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 py-6 md:grid-cols-2 lg:grid-cols-3">
         {showImage && (
           <ImageModal image={selectedImage} setShowImage={setShowImage} />
         )}
         {!showMore &&
-          data.slice(0, CUTOFF).map((render, index) => {
+          data.slice(0, CUTOFF).map((item, index) => {
             return (
               <div
                 className="relative cursor-pointer overflow-hidden bg-zinc-300 shadow-md"
                 key={index}
                 onClick={() => {
-                  setSelectedImage(render);
+                  setSelectedImage(item);
                   setShowImage(true);
                 }}
               >
                 <Image
                   className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                  src={`/assets/portfolio/${render}`}
-                  alt="3D Render"
+                  src={`/assets/portfolio/${pathPrefix}/${item}`}
+                  alt={heading}
                   width={1000}
                   height={1000}
                 />
@@ -56,19 +58,19 @@ export default function ImagesGrid({
       )}
       {showMore && (
         <div className="grid grid-cols-1 gap-4 py-8 md:grid-cols-2 lg:grid-cols-3">
-          {data.map((render, index) => {
+          {data.map((item, index) => {
             return (
               <div
                 className="relative cursor-pointer overflow-hidden bg-zinc-300 shadow-md"
                 key={index}
                 onClick={() => {
-                  setSelectedImage(render);
+                  setSelectedImage(item);
                   setShowImage(true);
                 }}
               >
                 <Image
                   className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                  src={`/assets/portfolio/${render}`}
+                  src={`/assets/portfolio/${pathPrefix}/${item}`}
                   alt="3D Render"
                   width={1000}
                   height={1000}
