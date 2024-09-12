@@ -1,31 +1,91 @@
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Image from "next/image";
-import { title } from "process";
-import React from "react";
+
+type subheadingItem = {
+  title: string;
+  description: string;
+}
 
 const services = [
   {
     title: "Interior Design Consultation",
     description:
       "We offer personalized interior design consultations to understand your vision and create a space that reflects your style and needs. Whether it's a single room or an entire home, we provide expert advice and innovative solutions.",
-    imageUrl: "/assets/services/design.jpg",
+    imageUrl: "/assets/portfolio/renders/4.1.jpg",
+    subheadings: [
+      {
+        title: "Demo Heading 1",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+      },
+      {
+        title: "Demo Heading 2",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+      },
+      {
+        title: "Demo Heading 3",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+      },
+    ],
   },
   {
     title: "Space Planning",
     description:
       "Optimize your living or working space with our space planning services. We analyze the available area and develop layouts that enhance functionality and aesthetics.",
-    imageUrl: "/assets/services/space-planning.jpg",
+    imageUrl: "/assets/portfolio/renders/3.2.jpg",
+    subheadings: [
+      {
+        title: "Demo Heading 1",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+      },
+      {
+        title: "Demo Heading 2",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+      },
+      {
+        title: "Demo Heading 3",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+      },
+    ],
   },
   {
     title: "Custom Furniture Creation",
     description:
       "We create custom furniture that fits your style and needs. Our team of skilled craftsmen can design and build unique pieces that add character and personality to your space.",
-    imageUrl: "/assets/services/furniture.jpg",
+    imageUrl: "/assets/portfolio/site-images/5.jpg",
+    subheadings: [
+      {
+        title: "Demo Heading 1",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+      },
+      {
+        title: "Demo Heading 2",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+      },
+      {
+        title: "Demo Heading 3",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+      },
+    ],
   },
   {
     title: "Civil Work",
     description:
       "We handle all aspects of civil work, including repairing, painting, and installing false ceilings. Our team ensures that every detail is perfect, providing a seamless finish to your project.",
-    imageUrl: "/assets/services/civil.jpg",
+    imageUrl: "/assets/portfolio/site-images/18.jpg",
+    subheadings: [
+      {
+        title: "Demo Heading 1",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+      },
+      {
+        title: "Demo Heading 2",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+      },
+      {
+        title: "Demo Heading 3",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+      },
+    ],
   },
 ];
 
@@ -38,7 +98,7 @@ export default function Services() {
           Our Services
         </h1>
       </div>
-      <div className="mx-auto mt-8 flex max-w-screen-2xl flex-col gap-10 px-6">
+      <div className="mx-auto mt-8 flex max-w-screen-xl 2xl:max-w-screen-2xl flex-col gap-10 px-6">
         {services.map((service, index) => (
           <div
             key={index}
@@ -50,12 +110,13 @@ export default function Services() {
                 : "order-2 lg:order-2 lg:pl-20"
                 }`}
             >
-              <h1 className="font-cormorantGaramond text-3xl lg:text-6xl">
+              {/* <h1 className="font-cormorantGaramond text-3xl lg:text-6xl">
                 {service.title}
               </h1>
               <p className={`mt-2 font-inter text-xl font-light`}>
                 {service.description}
-              </p>
+              </p> */}
+              <SubheadingAccordian subheading={service.subheadings} />
             </div>
             <div
               className={`col-span-1 lg:col-span-2 ${index % 2 == 0 ? "order-1 lg:order-2" : "order-1"
@@ -66,6 +127,7 @@ export default function Services() {
                 alt={"service"}
                 width={1000}
                 height={1000}
+                quality={100}
                 className="mx-auto aspect-square h-full object-cover"
               />
             </div>
@@ -96,4 +158,28 @@ export default function Services() {
       </div>
     </main>
   );
+}
+
+function SubheadingAccordian({
+  subheading
+}: {
+  subheading: subheadingItem[]
+}) {
+  return (
+    <Accordion type='multiple' className="w-full">
+      {subheading.map((item, index) => (
+        <AccordionItem
+          value={`item-${index}`}
+          key={index}
+          className="w-full max-w-screen-xl border-0"
+        >
+          <AccordionTrigger className="w-full text-3xl font-light font-inter hover:no-underline">
+            {item.title}
+          </AccordionTrigger>
+          <AccordionContent className="text-lg font-inter">
+            {item.description}
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>)
 }

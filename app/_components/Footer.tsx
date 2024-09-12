@@ -56,7 +56,7 @@ export default function Footer() {
           </p>
         </div>
         <div className="col-span-1">
-          <h1 className="font-bold text-muted-foreground">Company</h1>
+          <h1 className="font-bold text-muted-foreground">Studio</h1>
           <div className="mt-4 flex flex-col gap-3">
             {companyItems.map((item) => (
               <Link

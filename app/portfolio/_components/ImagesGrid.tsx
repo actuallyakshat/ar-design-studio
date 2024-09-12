@@ -22,7 +22,7 @@ export default function ImagesGrid({
     <div className="pt-6">
       <h2 className="text-center font-cormorantGaramond text-4xl">{heading}</h2>
       <div className="mx-auto mt-3 h-[2px] w-[70px] bg-alternative"></div>
-      <div className="grid grid-cols-1 gap-4 py-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-1.5 py-6 md:grid-cols-2 lg:grid-cols-3">
         {showImage && (
           <ImageModal image={selectedImage} setShowImage={setShowImage} prefixPath={pathPrefix} />
         )}

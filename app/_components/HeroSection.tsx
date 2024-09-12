@@ -1,4 +1,5 @@
 import { ChevronDown } from "lucide-react";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -19,9 +20,11 @@ export default function HeroSection() {
           tailored to fit your lifestyle and taste, ensuring every project is
           unique and personal.
         </p>
-        <button className="text-back mt-3 rounded-full border border-background px-6 py-2 font-cormorantGaramond text-xl font-medium transition-colors duration-500 ease-in-out hover:bg-background hover:text-black">
+        <Link
+          href={"/contact"}
+          className="text-back mt-3 rounded-full border border-background px-6 py-2 font-cormorantGaramond text-xl font-medium transition-colors duration-500 ease-in-out hover:bg-background hover:text-black">
           Contact Us
-        </button>
+        </Link>
       </div>
     </section>
   );
