@@ -24,7 +24,7 @@ export default function ImagesGrid({
       <div className="mx-auto mt-3 h-[2px] w-[70px] bg-alternative"></div>
       <div className="grid grid-cols-1 gap-4 py-6 md:grid-cols-2 lg:grid-cols-3">
         {showImage && (
-          <ImageModal image={selectedImage} setShowImage={setShowImage} />
+          <ImageModal image={selectedImage} setShowImage={setShowImage} prefixPath={pathPrefix} />
         )}
         {!showMore &&
           data.slice(0, CUTOFF).map((item, index) => {
@@ -71,7 +71,7 @@ export default function ImagesGrid({
                 <Image
                   className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
                   src={`/assets/portfolio/${pathPrefix}/${item}`}
-                  alt="3D Render"
+                  alt="Image"
                   width={1000}
                   height={1000}
                 />
@@ -94,9 +94,11 @@ export default function ImagesGrid({
 
 function ImageModal({
   image,
+  prefixPath,
   setShowImage,
 }: {
   image: string;
+  prefixPath: string;
   setShowImage: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const [loading, setLoading] = useState(true);
@@ -112,7 +114,7 @@ function ImageModal({
       )}
       <Image
         className="aspect-square max-h-[90vh] w-full object-contain"
-        src={`/assets/portfolio/${image}`}
+        src={`/assets/portfolio/${prefixPath}/${image}`}
         alt="3D Render"
         width={2000}
         height={2000}
