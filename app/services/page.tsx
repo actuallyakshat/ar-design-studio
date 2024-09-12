@@ -14,16 +14,16 @@ const services = [
     imageUrl: "/assets/portfolio/renders/4.1.jpg",
     subheadings: [
       {
-        title: "Demo Heading 1",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+        title: "Consultations",
+        description: "Understanding your vision, needs, style preferences, and budget to create a project plan.",
       },
       {
-        title: "Demo Heading 2",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+        title: "Space Planning",
+        description: "Optimising the use of space with a focus on functionality and flow.",
       },
       {
-        title: "Demo Heading 3",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+        title: "Concept Development & Presentation",
+        description: "Creating a unique design vision moulded to fit your lifestyle.",
       },
     ],
   },
@@ -34,16 +34,16 @@ const services = [
     imageUrl: "/assets/portfolio/renders/3.2.jpg",
     subheadings: [
       {
-        title: "Demo Heading 1",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+        title: "Furniture Selection & Customization",
+        description: "Choosing and creating furniture pieces tailored to your space.",
       },
       {
-        title: "Demo Heading 2",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+        title: "Color & Material Selection",
+        description: "Selecting the perfect color palette and finishes for your interiors.",
       },
       {
-        title: "Demo Heading 3",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+        title: "Lighting Design",
+        description: "Designing custom lighting solutions for ambiance and practicality.",
       },
     ],
   },
@@ -54,40 +54,83 @@ const services = [
     imageUrl: "/assets/portfolio/site-images/5.jpg",
     subheadings: [
       {
-        title: "Demo Heading 1",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+        title: "Soft Furnishings & Accessories",
+        description: "Adding the final touches with fabrics, décor, and accessories.",
       },
       {
-        title: "Demo Heading 2",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+        title: "Joinery & Cabinetry",
+        description: "Creating custom storage solutions that fit your space and your needs.",
       },
       {
-        title: "Demo Heading 3",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
-      },
-    ],
-  },
-  {
-    title: "Civil Work",
-    description:
-      "We handle all aspects of civil work, including repairing, painting, and installing false ceilings. Our team ensures that every detail is perfect, providing a seamless finish to your project.",
-    imageUrl: "/assets/portfolio/site-images/18.jpg",
-    subheadings: [
-      {
-        title: "Demo Heading 1",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
+        title: "Civil Work & Renovation",
+        description: "Managing structural changes, repairs, and upgrades.",
       },
       {
-        title: "Demo Heading 2",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
-      },
-      {
-        title: "Demo Heading 3",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita autem tempora impedit totam soluta corporis",
-      },
+        title: "Turnkey Solutions",
+        description: "Delivering fully designed, move-in-ready spaces.",
+      }
     ],
   },
 ];
+
+
+//convert:
+// 1.	Initial Consultation
+// 2.	Site Visit & Measurements
+// 3.	Space Planning & Concept  Development
+// 4.	Design Presentation
+// 5.	Budget Finalization
+// 6.	Procurement & Customization
+// 7.	Civil Work & Structural Changes
+// 8.	Furniture & Décor Installation
+// 9.	Final Touches & Styling
+// 10.	Client Walkthrough & Feedback
+
+
+
+const workingRoadmap = [
+  {
+    id: 1,
+    title: "Initial Consultation",
+  },
+  {
+    id: 2,
+    title: "Site Visit & Measurements",
+  },
+  {
+    id: 3,
+    title: "Space Planning & Concept  Development",
+  },
+  {
+    id: 4,
+    title: "Design Presentation",
+  },
+  {
+    id: 5,
+    title: "Budget Finalization",
+  },
+  {
+    id: 6,
+    title: "Procurement & Customization",
+  },
+  {
+    id: 7,
+    title: "Civil Work & Structural Changes",
+  },
+  {
+    id: 8,
+    title: "Furniture & Décor Installation",
+  },
+  {
+    id: 9,
+    title: "Final Touches & Styling",
+  },
+  {
+    id: 10,
+    title: "Client Walkthrough & Feedback",
+  }
+]
+
 
 export default function Services() {
   return (
@@ -110,12 +153,7 @@ export default function Services() {
                 : "order-2 lg:order-2 lg:pl-20"
                 }`}
             >
-              {/* <h1 className="font-cormorantGaramond text-3xl lg:text-6xl">
-                {service.title}
-              </h1>
-              <p className={`mt-2 font-inter text-xl font-light`}>
-                {service.description}
-              </p> */}
+
               <SubheadingAccordian subheading={service.subheadings} />
             </div>
             <div
@@ -133,29 +171,11 @@ export default function Services() {
             </div>
           </div>
         ))}
-        {/* <div className="grid grid-cols-5 gap-3">
-          <div className="col-span-3 flex flex-col justify-center">
-            <h1 className="text-6xl font-cormorantGaramond">
-              Interior Design Consultation
-            </h1>
-            <p className="mt-2 font-inter text-xl font-extralight max-w-screen-md">
-              We offer personalized interior design consultations to understand
-              your vision and create a space that reflects your style and needs.
-              Whether it&apos;s a single room or an entire home, we provide
-              expert advice and innovative solutions.
-            </p>
-          </div>
-          <div className="col-span-2">
-            <Image
-              src={"/assets/hero.jpg"}
-              alt={"service"}
-              width={600}
-              height={600}
-              className="aspect-square h-full mx-auto"
-            />
-          </div>
-        </div> */}
+        <div className="mx-auto my-2 lg:mt-12 lg:mb-6 h-[2px] w-full max-w-[150px] bg-alternative"></div>
+        <Roadmap />
+
       </div>
+
     </main>
   );
 }
@@ -173,13 +193,28 @@ function SubheadingAccordian({
           key={index}
           className="w-full max-w-screen-xl border-0"
         >
-          <AccordionTrigger className="w-full text-3xl font-light font-inter hover:no-underline">
+          <AccordionTrigger className="w-full text-2xl md:text-3xl xl:text-4xl text-alternative font-cormorantGaramond hover:no-underline text-left">
             {item.title}
           </AccordionTrigger>
-          <AccordionContent className="text-lg font-inter">
+          <AccordionContent className="xl:text-lg text-sm md:text-base font-light font-inter">
             {item.description}
           </AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>)
+}
+
+function Roadmap() {
+  return <div className="max-w-screen-lg w-full mx-auto">
+    <h2 className="text-3xl lg:text-4xl font-cormorantGaramond mb-10 text-center">Our Interior Design Process: From Concept to Completion</h2>
+    <div className="w-full space-y-4">
+      {
+        workingRoadmap.map((item, index) => (
+          <h4 key={index} className="text-base lg:text-xl font-inter font-light">
+            {index + 1}. {item.title}
+          </h4>
+        ))
+      }
+    </div>
+  </div>
 }
