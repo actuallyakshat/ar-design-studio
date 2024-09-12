@@ -32,7 +32,7 @@ const services = [
 export default function Services() {
   return (
     <main className="w-full py-16">
-      <div className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/1.5.jpg')] bg-cover bg-[center_60%]">
+      <div className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/renders/1.5.jpg')] bg-cover bg-[center_60%]">
         <div className="absolute h-full w-full bg-black/60"></div>
         <h1 className="z-[10] font-cormorantGaramond text-7xl text-background">
           Our Services
@@ -45,11 +45,10 @@ export default function Services() {
             className="grid grid-cols-1 gap-5 lg:grid-cols-5 lg:gap-10"
           >
             <div
-              className={`col-span-1 flex flex-col justify-center lg:col-span-3 ${
-                index % 2 === 0
-                  ? "order-2 lg:order-2 lg:pr-20"
-                  : "order-2 lg:order-2 lg:pl-20"
-              }`}
+              className={`col-span-1 flex flex-col justify-center lg:col-span-3 ${index % 2 === 0
+                ? "order-2 lg:order-2 lg:pr-20"
+                : "order-2 lg:order-2 lg:pl-20"
+                }`}
             >
               <h1 className="font-cormorantGaramond text-3xl lg:text-6xl">
                 {service.title}
@@ -59,9 +58,8 @@ export default function Services() {
               </p>
             </div>
             <div
-              className={`col-span-1 lg:col-span-2 ${
-                index % 2 == 0 ? "order-1 lg:order-2" : "order-1"
-              }`}
+              className={`col-span-1 lg:col-span-2 ${index % 2 == 0 ? "order-1 lg:order-2" : "order-1"
+                }`}
             >
               <Image
                 src={service.imageUrl}

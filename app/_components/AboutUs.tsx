@@ -220,7 +220,7 @@ export function WhatMakesUsDifferent() {
             ))}{" "}
           </div>
           <Image
-            src={"/assets/portfolio/1.1.jpg"}
+            src={"/assets/portfolio/renders/1.1.jpg"}
             alt="wmad"
             width={1080}
             height={1080}
@@ -229,7 +229,7 @@ export function WhatMakesUsDifferent() {
         </div>
         <div className="flex grid-cols-5 flex-col-reverse gap-12 pt-6 md:grid md:pt-16">
           <Image
-            src={"/assets/portfolio/1.4.jpg"}
+            src={"/assets/portfolio/renders/1.4.jpg"}
             alt="wmad"
             width={1080}
             height={1080}
