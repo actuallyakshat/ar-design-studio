@@ -70,9 +70,9 @@ export function MobileNavbar() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger className="z-[49] md:hidden">
-        <Menu className={`${isHomeRoute ? "stroke-white" : "stroke-black"}`} />
+        <Menu />
       </SheetTrigger>
-      <SheetContent className="w-full max-w-full">
+      <SheetContent className="z-[101] w-full max-w-full">
         <SheetHeader>
           <SheetTitle className="flex items-center justify-center">
             <Link href={"/"}>

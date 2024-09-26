@@ -43,7 +43,7 @@ export default function Footer() {
             alt={"logo"}
             width={200}
             height={200}
-            className="-ml-2 w-40"
+            className="-ml-2 w-32 md:w-40"
           />
           <h4 className="text-xl font-medium">AR Design Studio</h4>
           <p className="my-2 max-w-sm pr-4 text-sm">

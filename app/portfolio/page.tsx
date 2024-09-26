@@ -23,13 +23,17 @@ export default function Portfolio() {
     <div className="h-full min-h-screen pb-16 pt-16">
       <div className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/renders/1.6.jpg')] bg-cover bg-[center_83%]">
         <div className="absolute h-full w-full bg-black/60"></div>
-        <h1 className="z-[10] font-cormorantGaramond text-7xl text-background">
+        <h1 className="z-[10] font-cormorantGaramond text-5xl text-background md:text-6xl lg:text-7xl">
           Our Work
         </h1>
       </div>
       <div className="mx-auto mt-8 max-w-screen-xl px-6">
         <ImagesGrid data={renders} heading="3D Renders" pathPrefix="renders" />
-        <ImagesGrid data={siteImage} heading="Site Images" pathPrefix="site-images" />
+        <ImagesGrid
+          data={siteImage}
+          heading="Site Images"
+          pathPrefix="site-images"
+        />
       </div>
     </div>
   );
