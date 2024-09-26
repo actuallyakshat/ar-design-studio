@@ -1,10 +1,16 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import Image from "next/image";
+import Timeline from "./_components/Timeline";
 
 type subheadingItem = {
   title: string;
   description: string;
-}
+};
 
 const services = [
   {
@@ -15,15 +21,18 @@ const services = [
     subheadings: [
       {
         title: "Consultations",
-        description: "Understanding your vision, needs, style preferences, and budget to create a project plan.",
+        description:
+          "Understanding your vision, needs, style preferences, and budget to create a project plan.",
       },
       {
         title: "Space Planning",
-        description: "Optimising the use of space with a focus on functionality and flow.",
+        description:
+          "Optimising the use of space with a focus on functionality and flow.",
       },
       {
         title: "Concept Development & Presentation",
-        description: "Creating a unique design vision moulded to fit your lifestyle.",
+        description:
+          "Creating a unique design vision moulded to fit your lifestyle.",
       },
     ],
   },
@@ -35,15 +44,18 @@ const services = [
     subheadings: [
       {
         title: "Furniture Selection & Customization",
-        description: "Choosing and creating furniture pieces tailored to your space.",
+        description:
+          "Choosing and creating furniture pieces tailored to your space.",
       },
       {
         title: "Color & Material Selection",
-        description: "Selecting the perfect color palette and finishes for your interiors.",
+        description:
+          "Selecting the perfect color palette and finishes for your interiors.",
       },
       {
         title: "Lighting Design",
-        description: "Designing custom lighting solutions for ambiance and practicality.",
+        description:
+          "Designing custom lighting solutions for ambiance and practicality.",
       },
     ],
   },
@@ -55,11 +67,13 @@ const services = [
     subheadings: [
       {
         title: "Soft Furnishings & Accessories",
-        description: "Adding the final touches with fabrics, décor, and accessories.",
+        description:
+          "Adding the final touches with fabrics, décor, and accessories.",
       },
       {
         title: "Joinery & Cabinetry",
-        description: "Creating custom storage solutions that fit your space and your needs.",
+        description:
+          "Creating custom storage solutions that fit your space and your needs.",
       },
       {
         title: "Civil Work & Renovation",
@@ -68,69 +82,10 @@ const services = [
       {
         title: "Turnkey Solutions",
         description: "Delivering fully designed, move-in-ready spaces.",
-      }
+      },
     ],
   },
 ];
-
-
-//convert:
-// 1.	Initial Consultation
-// 2.	Site Visit & Measurements
-// 3.	Space Planning & Concept  Development
-// 4.	Design Presentation
-// 5.	Budget Finalization
-// 6.	Procurement & Customization
-// 7.	Civil Work & Structural Changes
-// 8.	Furniture & Décor Installation
-// 9.	Final Touches & Styling
-// 10.	Client Walkthrough & Feedback
-
-
-
-const workingRoadmap = [
-  {
-    id: 1,
-    title: "Initial Consultation",
-  },
-  {
-    id: 2,
-    title: "Site Visit & Measurements",
-  },
-  {
-    id: 3,
-    title: "Space Planning & Concept  Development",
-  },
-  {
-    id: 4,
-    title: "Design Presentation",
-  },
-  {
-    id: 5,
-    title: "Budget Finalization",
-  },
-  {
-    id: 6,
-    title: "Procurement & Customization",
-  },
-  {
-    id: 7,
-    title: "Civil Work & Structural Changes",
-  },
-  {
-    id: 8,
-    title: "Furniture & Décor Installation",
-  },
-  {
-    id: 9,
-    title: "Final Touches & Styling",
-  },
-  {
-    id: 10,
-    title: "Client Walkthrough & Feedback",
-  }
-]
-
 
 export default function Services() {
   return (
@@ -141,24 +96,25 @@ export default function Services() {
           Our Services
         </h1>
       </div>
-      <div className="mx-auto mt-8 flex max-w-screen-xl 2xl:max-w-screen-2xl flex-col gap-10 px-6">
+      <div className="mx-auto mt-8 flex max-w-screen-xl flex-col gap-10 px-6 2xl:max-w-screen-2xl">
         {services.map((service, index) => (
           <div
             key={index}
             className="grid grid-cols-1 gap-5 lg:grid-cols-5 lg:gap-10"
           >
             <div
-              className={`col-span-1 flex flex-col justify-center lg:col-span-3 ${index % 2 === 0
-                ? "order-2 lg:order-2 lg:pr-20"
-                : "order-2 lg:order-2 lg:pl-20"
-                }`}
+              className={`col-span-1 flex flex-col justify-center lg:col-span-3 ${
+                index % 2 === 0
+                  ? "order-2 lg:order-2 lg:pr-20"
+                  : "order-2 lg:order-2 lg:pl-20"
+              }`}
             >
-
               <SubheadingAccordian subheading={service.subheadings} />
             </div>
             <div
-              className={`col-span-1 lg:col-span-2 ${index % 2 == 0 ? "order-1 lg:order-2" : "order-1"
-                }`}
+              className={`col-span-1 lg:col-span-2 ${
+                index % 2 == 0 ? "order-1 lg:order-2" : "order-1"
+              }`}
             >
               <Image
                 src={service.imageUrl}
@@ -171,50 +127,30 @@ export default function Services() {
             </div>
           </div>
         ))}
-        <div className="mx-auto my-2 lg:mt-12 lg:mb-6 h-[2px] w-full max-w-[150px] bg-alternative"></div>
-        <Roadmap />
-
+        <div className="mx-auto my-2 h-[2px] w-full max-w-[150px] bg-alternative lg:mb-6 lg:mt-12"></div>
+        <Timeline />
       </div>
-
     </main>
   );
 }
 
-function SubheadingAccordian({
-  subheading
-}: {
-  subheading: subheadingItem[]
-}) {
+function SubheadingAccordian({ subheading }: { subheading: subheadingItem[] }) {
   return (
-    <Accordion type='multiple' className="w-full">
+    <Accordion type="multiple" className="w-full">
       {subheading.map((item, index) => (
         <AccordionItem
           value={`item-${index}`}
           key={index}
           className="w-full max-w-screen-xl border-0"
         >
-          <AccordionTrigger className="w-full text-2xl md:text-3xl xl:text-4xl text-alternative font-cormorantGaramond hover:no-underline text-left">
+          <AccordionTrigger className="w-full text-left font-cormorantGaramond text-2xl text-alternative hover:no-underline md:text-3xl xl:text-4xl">
             {item.title}
           </AccordionTrigger>
-          <AccordionContent className="xl:text-lg text-sm md:text-base font-light font-inter">
+          <AccordionContent className="font-inter text-sm font-light md:text-base xl:text-lg">
             {item.description}
           </AccordionContent>
         </AccordionItem>
       ))}
-    </Accordion>)
-}
-
-function Roadmap() {
-  return <div className="max-w-screen-lg w-full mx-auto">
-    <h2 className="text-3xl lg:text-4xl font-cormorantGaramond mb-10 text-center">Our Interior Design Process: From Concept to Completion</h2>
-    <div className="w-full space-y-4">
-      {
-        workingRoadmap.map((item, index) => (
-          <h4 key={index} className="text-base lg:text-xl font-inter font-light">
-            {index + 1}. {item.title}
-          </h4>
-        ))
-      }
-    </div>
-  </div>
+    </Accordion>
+  );
 }
