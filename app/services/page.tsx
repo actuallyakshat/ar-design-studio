@@ -96,7 +96,7 @@ export default function Services() {
           Our Services
         </h1>
       </div>
-      <div className="mx-auto mt-8 flex max-w-screen-xl flex-col gap-10 px-6 2xl:max-w-screen-2xl">
+      <div className="mx-auto mt-8 flex max-w-[1100px] flex-col gap-10 px-6 2xl:max-w-screen-2xl">
         {services.map((service, index) => (
           <div
             key={index}
@@ -143,7 +143,7 @@ function SubheadingAccordian({ subheading }: { subheading: subheadingItem[] }) {
           key={index}
           className="w-full max-w-screen-xl border-0"
         >
-          <AccordionTrigger className="w-full text-left font-cormorantGaramond text-2xl text-alternative hover:no-underline md:text-3xl xl:text-4xl">
+          <AccordionTrigger className="w-full text-left font-cormorantGaramond text-2xl text-alternative hover:no-underline md:text-3xl 2xl:text-4xl">
             {item.title}
           </AccordionTrigger>
           <AccordionContent className="font-inter text-sm font-light md:text-base xl:text-lg">

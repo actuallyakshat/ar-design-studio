@@ -126,7 +126,7 @@ export function NewAboutUs() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   return (
-    <section className="mx-auto !block max-w-screen-xl px-5 pb-16 pt-16">
+    <section className="mx-auto !block max-w-screen-lg px-5 pb-16 pt-16 2xl:max-w-screen-xl">
       <FadeUpText>About Us</FadeUpText>
       <hr className="mt-2" />
       <div className="flex grid-cols-6 flex-col gap-6 pt-12 md:grid lg:gap-14">
@@ -202,7 +202,7 @@ const features = [
 export function WhatMakesUsDifferent() {
   return (
     <section className="!block px-5 pb-32 pt-20">
-      <div className="mx-auto h-full max-w-screen-xl">
+      <div className="mx-auto h-full max-w-screen-lg 2xl:max-w-screen-xl">
         <div className="">
           <FadeUpText>What makes us different?</FadeUpText>
         </div>
@@ -284,7 +284,7 @@ const team = [
 export function OurTeam() {
   return (
     <section className="!block h-full px-5 !pt-0">
-      <div className="mx-auto h-full max-w-screen-xl">
+      <div className="mx-auto h-full max-w-screen-lg 2xl:max-w-screen-xl">
         <div>
           <FadeUpText>Our Team</FadeUpText>
         </div>

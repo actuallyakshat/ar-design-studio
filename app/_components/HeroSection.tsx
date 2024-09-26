@@ -11,7 +11,7 @@ export default function HeroSection() {
       {/* <HomeNavigation /> */}
 
       <div className="relative z-[20] mx-auto flex h-full w-full max-w-screen-xl flex-1 flex-col items-center justify-center gap-2 text-white">
-        <h1 className="text-center font-cormorantGaramond text-4xl font-light leading-[1.2] lg:text-7xl">
+        <h1 className="pt-16 text-center font-cormorantGaramond text-4xl font-light leading-[1.2] lg:text-6xl 2xl:text-7xl">
           Elegant Interiors Tailored To Your Vision
         </h1>
         <p className="max-w-screen-lg text-center font-cormorantGaramond text-base font-light md:text-xl">

@@ -35,7 +35,7 @@ const navItems = [
 export default function Navbar() {
   return (
     <nav className="fixed z-[100] flex h-16 w-full items-center justify-center bg-background px-4">
-      <div className="flex h-full w-full max-w-screen-xl items-center justify-between">
+      <div className="flex h-full w-full max-w-screen-lg items-center justify-between 2xl:max-w-screen-xl">
         <Link href={"/"}>
           <Image
             src={"/logo.png"}
