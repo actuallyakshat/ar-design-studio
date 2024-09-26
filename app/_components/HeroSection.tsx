@@ -22,7 +22,8 @@ export default function HeroSection() {
         </p>
         <Link
           href={"/contact"}
-          className="text-back mt-3 rounded-full border border-background px-6 py-2 font-cormorantGaramond text-xl font-medium transition-colors duration-500 ease-in-out hover:bg-background hover:text-black">
+          className="text-back mt-3 rounded-full border border-background px-6 py-2 font-cormorantGaramond text-xl font-medium transition-colors duration-300 ease-in-out hover:bg-background hover:text-black"
+        >
           Contact Us
         </Link>
       </div>

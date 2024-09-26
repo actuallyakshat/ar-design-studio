@@ -37,19 +37,19 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <div className="mx-auto grid min-h-[50vh] w-full max-w-screen-2xl grid-cols-6 items-center justify-between gap-8 pb-10 pt-8">
-      <div className="col-span-6 text-center xl:col-span-3 xl:text-left">
-        <h2 className="mb-2 font-cormorantGaramond text-4xl sm:text-5xl">
-          What our clients say about us
+    <div className="mx-auto flex min-h-[50vh] w-full max-w-screen-2xl flex-col items-center justify-between gap-8 px-6 pb-10 pt-20">
+      <div>
+        <h2 className="mx-auto mb-2 max-w-[20ch] text-center font-cormorantGaramond text-3xl font-semibold sm:max-w-full sm:text-4xl lg:text-5xl">
+          What Our Clients Say About Us
         </h2>
-        <p className="font-cormorantGaramond text-xl sm:text-2xl">
+        <p className="text-center font-inter font-light sm:text-lg">
           A few testimonials from our satisfied clients.
         </p>
       </div>
 
-      <div className="col-span-6 flex h-full items-center justify-end rounded-xl xl:col-span-3">
-        <Carousel className="max-w-[95%] md:max-w-3xl" opts={{ loop: true }}>
-          <CarouselContent className="">
+      <div className="flex h-full min-w-0 max-w-[95%] items-center justify-center rounded-xl sm:px-6 md:max-w-3xl md:px-10 xl:col-span-3">
+        <Carousel className="w-full" opts={{ loop: true }}>
+          <CarouselContent>
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index}>
                 <TestimonialCard
@@ -59,6 +59,10 @@ export default function Testimonials() {
               </CarouselItem>
             ))}
           </CarouselContent>
+          <div className="hidden md:block">
+            <CarouselNext />
+            <CarouselPrevious />
+          </div>
         </Carousel>
       </div>
     </div>
@@ -67,11 +71,11 @@ export default function Testimonials() {
 
 function TestimonialCard({ quote, name }: { quote: string; name: string }) {
   return (
-    <div className="flex h-full select-none flex-col items-center justify-center rounded-3xl bg-alternative px-6 py-10 text-white">
+    <div className="flex h-full select-none flex-col items-center justify-center rounded-3xl border-2 px-6 py-10 text-black">
       <i className="mx-auto">
-        <Quote className="rotate-180 border-none fill-alternative stroke-white" />
+        <Quote className="rotate-180 border-none fill-alternative stroke-alternative" />
       </i>
-      <p className="mb-2 mt-4 text-center font-inter text-xl font-light">
+      <p className="mb-2 mt-4 text-center font-inter text-base font-light md:text-xl">
         {quote}
       </p>
       <h4 className="font-medium">{name}</h4>

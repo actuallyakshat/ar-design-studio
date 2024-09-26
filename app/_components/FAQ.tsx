@@ -30,8 +30,8 @@ const QUESTIONS = [
 
 export function FAQ() {
   return (
-    <div className="mx-auto flex min-h-[70vh] max-w-screen-xl flex-col items-center justify-center px-5 pb-16 pt-16">
-      <h2 className="text-center font-cormorantGaramond text-5xl">
+    <div className="mx-auto flex min-h-[60vh] max-w-screen-xl flex-col items-center justify-center px-5 pb-16 pt-16">
+      <h2 className="text-center font-cormorantGaramond text-3xl font-semibold sm:text-4xl lg:text-5xl">
         Frequently Asked Questions
       </h2>
       <p className="py-4 text-center font-inter font-light">
@@ -45,10 +45,10 @@ export function FAQ() {
               key={index}
               className="w-full max-w-screen-xl"
             >
-              <AccordionTrigger className="w-full text-2xl">
+              <AccordionTrigger className="w-full text-left text-xl font-semibold no-underline md:text-2xl">
                 {question.question}
               </AccordionTrigger>
-              <AccordionContent className="text-xl">
+              <AccordionContent className="text-lg md:text-xl">
                 {question.answer}
               </AccordionContent>
             </AccordionItem>
