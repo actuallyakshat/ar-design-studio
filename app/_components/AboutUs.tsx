@@ -148,11 +148,12 @@ export function NewAboutUs() {
           className="col-span-4 w-full"
         >
           <p className="font-inter text-lg">
-            Founded by Antara Roy in 2003, AR Design Studio in Kolkata is driven
-            by a passion for art and a dedication to creating beautiful,
-            functional spaces. Antara Roy, certified by the Birla Institute of
-            Liberal Arts and Management Sciences, brings a love for art and a
-            keen eye for detail to every project.
+            Founded by <span className="font-semibold">Antara Roy</span> in
+            2003, AR Design Studio in Kolkata is driven by a passion for art and
+            a dedication to creating beautiful, functional spaces. Antara Roy,
+            certified by the Birla Institute of Liberal Arts and Management
+            Sciences, brings a love for art and a keen eye for detail to every
+            project.
             <br />
             <br />
             The studio specializes in helping people build homes they love by
@@ -200,7 +201,7 @@ const features = [
 
 export function WhatMakesUsDifferent() {
   return (
-    <section className="section !block px-5">
+    <section className="!block px-5 pb-32 pt-20">
       <div className="mx-auto h-full max-w-screen-xl">
         <div className="">
           <FadeUpText>What makes us different?</FadeUpText>
