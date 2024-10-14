@@ -1,5 +1,5 @@
-import ImagesGrid from "./_components/ImagesGrid";
-
+"use client";
+// import ImagesGrid from "./_components/ImagesGrid";
 const renders = [
   "1.1.jpg",
   "1.2.jpg",
@@ -45,22 +45,82 @@ const siteImage = [
   "26.jpg",
 ];
 
+// export default function Portfolio() {
+//   return (
+//     <div className="h-full min-h-screen pb-16 pt-16">
+//       <div className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/renders/1.6.jpg')] bg-cover bg-[center_83%]">
+//         <div className="absolute h-full w-full bg-black/60"></div>
+//         <h1 className="z-[10] font-cormorantGaramond text-5xl text-background md:text-6xl lg:text-7xl">
+//           Our Work
+//         </h1>
+//       </div>
+//       <div className="mx-auto mt-8 max-w-screen-lg px-6 2xl:max-w-screen-xl">
+//         <ImagesGrid data={renders} heading="3D Renders" pathPrefix="renders" />
+//         <ImagesGrid
+//           data={siteImage}
+//           heading="Site Images"
+//           pathPrefix="site-images"
+//         />
+//       </div>
+//     </div>
+//   );
+// }
+
+import React from "react";
+import { motion } from "framer-motion";
+import ImagesGrid from "./_components/ImagesGrid";
+
+const fadeInUpVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export default function Portfolio() {
   return (
     <div className="h-full min-h-screen pb-16 pt-16">
-      <div className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/renders/1.6.jpg')] bg-cover bg-[center_83%]">
+      <motion.div
+        className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/renders/1.6.jpg')] bg-cover bg-[center_83%]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <div className="absolute h-full w-full bg-black/60"></div>
-        <h1 className="z-[10] font-cormorantGaramond text-5xl text-background md:text-6xl lg:text-7xl">
+        <motion.h1
+          className="z-[10] font-cormorantGaramond text-5xl text-background md:text-6xl lg:text-7xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+        >
           Our Work
-        </h1>
-      </div>
+        </motion.h1>
+      </motion.div>
       <div className="mx-auto mt-8 max-w-screen-lg px-6 2xl:max-w-screen-xl">
-        <ImagesGrid data={renders} heading="3D Renders" pathPrefix="renders" />
-        <ImagesGrid
-          data={siteImage}
-          heading="Site Images"
-          pathPrefix="site-images"
-        />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUpVariants}
+          transition={{ duration: 0.5 }}
+        >
+          <ImagesGrid
+            data={renders}
+            heading="3D Renders"
+            pathPrefix="renders"
+          />
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUpVariants}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <ImagesGrid
+            data={siteImage}
+            heading="Site Images"
+            pathPrefix="site-images"
+          />
+        </motion.div>
       </div>
     </div>
   );

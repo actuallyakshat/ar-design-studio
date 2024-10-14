@@ -1,16 +1,17 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import Image from "next/image";
-import Timeline from "./_components/Timeline";
+"use client";
+// import {
+//   Accordion,
+//   AccordionContent,
+//   AccordionItem,
+//   AccordionTrigger,
+// } from "@/components/ui/accordion";
+// import Image from "next/image";
+// import Timeline from "./_components/Timeline";
 
-type subheadingItem = {
-  title: string;
-  description: string;
-};
+// type subheadingItem = {
+//   title: string;
+//   description: string;
+// };
 
 const services = [
   {
@@ -87,20 +88,153 @@ const services = [
   },
 ];
 
+// export default function Services() {
+//   return (
+//     <main className="w-full py-16">
+//       <div className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/renders/1.5.jpg')] bg-cover bg-[center_60%]">
+//         <div className="absolute h-full w-full bg-black/60"></div>
+//         <h1 className="z-[10] font-cormorantGaramond text-5xl text-background md:text-6xl lg:text-7xl">
+//           Our Services
+//         </h1>
+//       </div>
+//       <div className="mx-auto mt-8 flex max-w-[1100px] flex-col gap-10 px-6 2xl:max-w-screen-2xl">
+//         {services.map((service, index) => (
+//           <div
+//             key={index}
+//             className="grid grid-cols-1 gap-5 lg:grid-cols-5 lg:gap-10"
+//           >
+//             <div
+//               className={`col-span-1 flex flex-col justify-center lg:col-span-3 ${
+//                 index % 2 === 0
+//                   ? "order-2 lg:order-2 lg:pr-20"
+//                   : "order-2 lg:order-2 lg:pl-20"
+//               }`}
+//             >
+//               <SubheadingAccordian subheading={service.subheadings} />
+//             </div>
+//             <div
+//               className={`col-span-1 lg:col-span-2 ${
+//                 index % 2 == 0 ? "order-1 lg:order-2" : "order-1"
+//               }`}
+//             >
+//               <Image
+//                 src={service.imageUrl}
+//                 alt={"service"}
+//                 width={1000}
+//                 height={1000}
+//                 quality={100}
+//                 className="mx-auto aspect-square h-full object-cover"
+//               />
+//             </div>
+//           </div>
+//         ))}
+//         <div className="mx-auto my-2 h-[2px] w-full max-w-[150px] bg-alternative lg:mb-6 lg:mt-12"></div>
+//         <Timeline />
+//       </div>
+//     </main>
+//   );
+// }
+
+// function SubheadingAccordian({ subheading }: { subheading: subheadingItem[] }) {
+//   return (
+//     <Accordion type="multiple" className="w-full">
+//       {subheading.map((item, index) => (
+//         <AccordionItem
+//           value={`item-${index}`}
+//           key={index}
+//           className="w-full max-w-screen-xl border-0"
+//         >
+//           <AccordionTrigger className="w-full text-left font-cormorantGaramond text-2xl text-alternative hover:no-underline md:text-3xl 2xl:text-4xl">
+//             {item.title}
+//           </AccordionTrigger>
+//           <AccordionContent className="font-inter text-sm font-light md:text-base xl:text-lg">
+//             {item.description}
+//           </AccordionContent>
+//         </AccordionItem>
+//       ))}
+//     </Accordion>
+//   );
+// }
+
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import Image from "next/image";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import Timeline from "./_components/Timeline";
+
+type subheadingItem = {
+  title: string;
+  description: string;
+};
+
+const fadeInUpVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+function SubheadingAccordian({ subheading }: { subheading: subheadingItem[] }) {
+  return (
+    <Accordion type="multiple" className="w-full">
+      {subheading.map((item, index) => (
+        <motion.div
+          key={index}
+          variants={fadeInUpVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+        >
+          <AccordionItem
+            value={`item-${index}`}
+            className="w-full max-w-screen-xl border-0"
+          >
+            <AccordionTrigger className="w-full text-left font-cormorantGaramond text-2xl text-alternative hover:no-underline md:text-3xl 2xl:text-4xl">
+              {item.title}
+            </AccordionTrigger>
+            <AccordionContent className="font-inter text-sm font-light md:text-base xl:text-lg">
+              {item.description}
+            </AccordionContent>
+          </AccordionItem>
+        </motion.div>
+      ))}
+    </Accordion>
+  );
+}
+
 export default function Services() {
   return (
     <main className="w-full py-16">
-      <div className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/renders/1.5.jpg')] bg-cover bg-[center_60%]">
+      <motion.div
+        className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/renders/1.5.jpg')] bg-cover bg-[center_60%]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <div className="absolute h-full w-full bg-black/60"></div>
-        <h1 className="z-[10] font-cormorantGaramond text-5xl text-background md:text-6xl lg:text-7xl">
+        <motion.h1
+          className="z-[10] font-cormorantGaramond text-5xl text-background md:text-6xl lg:text-7xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+        >
           Our Services
-        </h1>
-      </div>
+        </motion.h1>
+      </motion.div>
       <div className="mx-auto mt-8 flex max-w-[1100px] flex-col gap-10 px-6 2xl:max-w-screen-2xl">
         {services.map((service, index) => (
-          <div
+          <motion.div
             key={index}
             className="grid grid-cols-1 gap-5 lg:grid-cols-5 lg:gap-10"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUpVariants}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
           >
             <div
               className={`col-span-1 flex flex-col justify-center lg:col-span-3 ${
@@ -125,32 +259,17 @@ export default function Services() {
                 className="mx-auto aspect-square h-full object-cover"
               />
             </div>
-          </div>
+          </motion.div>
         ))}
-        <div className="mx-auto my-2 h-[2px] w-full max-w-[150px] bg-alternative lg:mb-6 lg:mt-12"></div>
+        <motion.div
+          className="mx-auto my-2 h-[2px] w-full max-w-[150px] bg-alternative lg:mb-6 lg:mt-12"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        ></motion.div>
         <Timeline />
       </div>
     </main>
-  );
-}
-
-function SubheadingAccordian({ subheading }: { subheading: subheadingItem[] }) {
-  return (
-    <Accordion type="multiple" className="w-full">
-      {subheading.map((item, index) => (
-        <AccordionItem
-          value={`item-${index}`}
-          key={index}
-          className="w-full max-w-screen-xl border-0"
-        >
-          <AccordionTrigger className="w-full text-left font-cormorantGaramond text-2xl text-alternative hover:no-underline md:text-3xl 2xl:text-4xl">
-            {item.title}
-          </AccordionTrigger>
-          <AccordionContent className="font-inter text-sm font-light md:text-base xl:text-lg">
-            {item.description}
-          </AccordionContent>
-        </AccordionItem>
-      ))}
-    </Accordion>
   );
 }
