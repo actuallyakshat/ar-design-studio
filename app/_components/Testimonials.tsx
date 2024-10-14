@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import {
   Carousel,
   CarouselContent,
@@ -35,19 +37,71 @@ const testimonials = [
   },
 ];
 
+const fadeUpVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+function TestimonialCard({ quote, name }: { quote: string; name: string }) {
+  return (
+    <div className="flex h-full select-none flex-col items-center justify-center rounded-3xl border-2 px-6 py-10 text-black">
+      <i className="mx-auto">
+        <Quote className="rotate-180 border-none fill-alternative stroke-alternative" />
+      </i>
+      <p className="mb-2 mt-4 text-center font-inter text-base font-light md:text-xl">
+        {quote}
+      </p>
+      <h4 className="font-medium">{name}</h4>
+    </div>
+  );
+}
+
 export default function Testimonials() {
+  const titleRef = useRef(null);
+  const titleInView = useInView(titleRef, { once: true, amount: 0.5 });
+
+  const descriptionRef = useRef(null);
+  const descriptionInView = useInView(descriptionRef, {
+    once: true,
+    amount: 0.5,
+  });
+
+  const carouselRef = useRef(null);
+  const carouselInView = useInView(carouselRef, { once: true, amount: 0.3 });
+
   return (
     <div className="mx-auto flex min-h-[50vh] w-full max-w-screen-2xl flex-col items-center justify-between gap-8 px-6 pb-10 pt-20">
       <div>
-        <h2 className="mx-auto mb-2 max-w-[20ch] text-center font-cormorantGaramond text-3xl font-semibold sm:max-w-full sm:text-4xl lg:text-5xl">
+        <motion.h2
+          ref={titleRef}
+          variants={fadeUpVariants}
+          initial="hidden"
+          animate={titleInView ? "visible" : "hidden"}
+          transition={{ duration: 0.5 }}
+          className="mx-auto mb-2 max-w-[20ch] text-center font-cormorantGaramond text-3xl font-semibold sm:max-w-full sm:text-4xl lg:text-5xl"
+        >
           What Our Clients Say About Us
-        </h2>
-        <p className="text-center font-inter font-light sm:text-lg">
+        </motion.h2>
+        <motion.p
+          ref={descriptionRef}
+          variants={fadeUpVariants}
+          initial="hidden"
+          animate={descriptionInView ? "visible" : "hidden"}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-center font-inter font-light sm:text-lg"
+        >
           A few testimonials from our satisfied clients.
-        </p>
+        </motion.p>
       </div>
 
-      <div className="flex h-full min-w-0 max-w-[95%] items-center justify-center rounded-xl sm:px-6 md:max-w-3xl md:px-10 xl:col-span-3">
+      <motion.div
+        ref={carouselRef}
+        variants={fadeUpVariants}
+        initial="hidden"
+        animate={carouselInView ? "visible" : "hidden"}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="flex h-full min-w-0 max-w-[95%] items-center justify-center rounded-xl sm:px-6 md:max-w-3xl md:px-10 xl:col-span-3"
+      >
         <Carousel className="w-full" opts={{ loop: true }}>
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
@@ -64,21 +118,7 @@ export default function Testimonials() {
             <CarouselPrevious />
           </div>
         </Carousel>
-      </div>
-    </div>
-  );
-}
-
-function TestimonialCard({ quote, name }: { quote: string; name: string }) {
-  return (
-    <div className="flex h-full select-none flex-col items-center justify-center rounded-3xl border-2 px-6 py-10 text-black">
-      <i className="mx-auto">
-        <Quote className="rotate-180 border-none fill-alternative stroke-alternative" />
-      </i>
-      <p className="mb-2 mt-4 text-center font-inter text-base font-light md:text-xl">
-        {quote}
-      </p>
-      <h4 className="font-medium">{name}</h4>
+      </motion.div>
     </div>
   );
 }

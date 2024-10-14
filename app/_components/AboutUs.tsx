@@ -199,26 +199,78 @@ const features = [
   },
 ];
 
+const fadeUpVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const FeatureItem = ({
+  feature,
+  index,
+}: {
+  feature: (typeof features)[0];
+  index: number;
+}) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={fadeUpVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      transition={{ duration: 0.5, delay: index * 0.2 }}
+    >
+      <h3 className="font-cormorantGaramond text-3xl font-semibold md:text-4xl">
+        - {feature.heading}
+      </h3>
+      <p className="py-1 font-inter font-light">{feature.description}</p>
+    </motion.div>
+  );
+};
+
 export function WhatMakesUsDifferent() {
+  const titleRef = useRef(null);
+  const titleInView = useInView(titleRef, { once: true, amount: 0.5 });
+
+  const firstSectionRef = useRef(null);
+  const firstSectionInView = useInView(firstSectionRef, {
+    once: true,
+    amount: 0.3,
+  });
+
+  const secondSectionRef = useRef(null);
+  const secondSectionInView = useInView(secondSectionRef, {
+    once: true,
+    amount: 0.3,
+  });
+
   return (
     <section className="!block px-5 pb-32 pt-20">
       <div className="mx-auto h-full max-w-screen-lg 2xl:max-w-screen-xl">
-        <div className="">
+        <motion.div
+          ref={titleRef}
+          initial="hidden"
+          animate={titleInView ? "visible" : "hidden"}
+          variants={fadeUpVariants}
+          transition={{ duration: 0.5 }}
+        >
           <FadeUpText>What makes us different?</FadeUpText>
-        </div>
+        </motion.div>
         <hr className="mt-2" />
-        <div className="flex grid-cols-5 flex-col gap-8 pt-6 md:grid md:pt-12">
+        <motion.div
+          ref={firstSectionRef}
+          initial="hidden"
+          animate={firstSectionInView ? "visible" : "hidden"}
+          variants={fadeUpVariants}
+          transition={{ duration: 0.5 }}
+          className="flex grid-cols-5 flex-col gap-8 pt-6 md:grid md:pt-12"
+        >
           <div className="col-span-3 flex flex-col items-center gap-5">
             {features.slice(0, 2).map((feature, index) => (
-              <div key={index}>
-                <h3 className="font-cormorantGaramond text-3xl font-semibold md:text-4xl">
-                  - {feature.heading}
-                </h3>
-                <p className="py-1 font-inter font-light">
-                  {feature.description}
-                </p>
-              </div>
-            ))}{" "}
+              <FeatureItem key={index} feature={feature} index={index} />
+            ))}
           </div>
           <Image
             src={"/assets/portfolio/renders/1.1.jpg"}
@@ -227,8 +279,15 @@ export function WhatMakesUsDifferent() {
             height={1080}
             className="col-span-2 aspect-square max-h-[20rem] rounded-3xl object-cover"
           />
-        </div>
-        <div className="flex grid-cols-5 flex-col-reverse gap-12 pt-6 md:grid md:pt-16">
+        </motion.div>
+        <motion.div
+          ref={secondSectionRef}
+          initial="hidden"
+          animate={secondSectionInView ? "visible" : "hidden"}
+          variants={fadeUpVariants}
+          transition={{ duration: 0.5 }}
+          className="flex grid-cols-5 flex-col-reverse gap-12 pt-6 md:grid md:pt-16"
+        >
           <Image
             src={"/assets/portfolio/renders/1.4.jpg"}
             alt="wmad"
@@ -238,17 +297,14 @@ export function WhatMakesUsDifferent() {
           />
           <div className="col-span-3 flex flex-col items-center gap-5">
             {features.slice(2, 4).map((feature, index) => (
-              <div key={index}>
-                <h3 className="font-cormorantGaramond text-3xl font-semibold md:text-4xl">
-                  - {feature.heading}
-                </h3>
-                <p className="py-1 font-inter font-light">
-                  {feature.description}
-                </p>
-              </div>
-            ))}{" "}
+              <FeatureItem
+                key={index + 2}
+                feature={feature}
+                index={index + 2}
+              />
+            ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -256,71 +312,97 @@ export function WhatMakesUsDifferent() {
 
 const team = [
   {
-    heading: "Workers",
+    heading: "Craftsmen",
     description:
-      "Our skilled workers are the backbone of every project. They are experienced craftsmen who bring meticulous attention to detail, ensuring the highest quality finishes and an impeccable execution of design plans. From carpentry to painting and everything in between, our workers are dedicated to bringing your dream space to life.",
+      "Our skilled craftsmen bring meticulous attention to detail, ensuring the highest quality finishes and design execution. Their expertise covers everything from carpentry to painting, bringing your dream space to life.",
     image: "/assets/team/worker.jpg",
   },
   {
     heading: "Supervisor",
     description:
-      "The Supervisor oversees the seamless execution of each project, coordinating with different teams to ensure timelines are met and quality standards are upheld. With a keen eye for detail and a strong understanding of construction and design, they ensure every aspect of the project is perfectly aligned with the client’s vision.",
+      "The Supervisor ensures timelines are met and quality standards are upheld, aligning every aspect with the client's vision. They coordinate teams efficiently to guarantee smooth project delivery.",
     image: "/assets/team/supervisor.jpg",
   },
   {
     heading: "Vaastu Consultant",
     description:
-      "Our Vaastu Consultant provides insights into traditional Indian architecture principles, ensuring that your space is harmonized according to ancient guidelines. By balancing the elements and energies, they help create spaces that not only look beautiful but also promote well-being and prosperity.",
+      "Our Vaastu Consultant harmonizes your space by applying traditional Indian architectural principles for well-being and prosperity. Their insights help balance elements and energies for optimal living environments.",
     image: "/assets/team/vaastu.jpg",
   },
   {
     heading: "Interior Designer",
     description:
-      "Our Interior Designer is the creative force behind our studio’s innovative designs. With a passion for aesthetics and a deep understanding of spatial dynamics, they transform spaces into functional works of art that reflect our clients' personalities and lifestyle. From concept to completion, they bring a unique vision to every project.",
+      "The Interior Designer transforms spaces into functional art, reflecting clients' personalities through innovative and unique designs. From conceptualization to final touches, they ensure every detail complements the aesthetic vision.",
     image: "/assets/team/designer.jpg",
   },
 ];
 
-export function OurTeam() {
-  return (
-    <section className="!block h-full px-5 !pt-0">
-      <div className="mx-auto h-full max-w-screen-lg 2xl:max-w-screen-xl">
-        <div>
-          <FadeUpText>Our Team</FadeUpText>
-        </div>
-        <hr className="mt-2" />
-        <div className="grid grid-cols-1 gap-10 pt-12 md:grid-cols-2">
-          {team.map((teamMember, index) => (
-            <TeamMember key={index} {...teamMember} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+// const fadeUpVariants = {
+//   hidden: { opacity: 0, y: 20 },
+//   visible: { opacity: 1, y: 0 },
+// };
 
 function TeamMember({
   heading,
   description,
   image,
+  index,
 }: {
   heading: string;
   description: string;
   image: string;
+  index: number;
 }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
   return (
-    <div className="col-span-1 flex h-full flex-col space-y-1 font-inter">
+    <motion.div
+      ref={ref}
+      variants={fadeUpVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      transition={{ duration: 0.5, delay: index * 0.2 }}
+      className="col-span-1 flex h-full flex-col space-y-1 font-inter"
+    >
       <Image
         src={image}
         alt={heading}
         width={1080}
         height={1080}
-        className="aspect-video max-h-[10rem] rounded-3xl object-cover"
+        className="aspect-video max-h-[14rem] rounded-3xl object-cover"
       />
-      <h3 className="pt-2 font-cormorantGaramond text-4xl font-semibold">
+      <h2 className="pt-5 font-cormorantGaramond text-4xl font-semibold">
         {heading}
-      </h3>
-      <p className="font-light">{description}</p>
-    </div>
+      </h2>
+      <p className="pt-2.5">{description}</p>
+    </motion.div>
+  );
+}
+
+export function OurTeam() {
+  const titleRef = useRef(null);
+  const titleInView = useInView(titleRef, { once: true, amount: 0.5 });
+
+  return (
+    <section className="!block h-full px-5 !pt-0">
+      <div className="mx-auto h-full max-w-screen-lg 2xl:max-w-screen-xl">
+        <motion.div
+          ref={titleRef}
+          variants={fadeUpVariants}
+          initial="hidden"
+          animate={titleInView ? "visible" : "hidden"}
+          transition={{ duration: 0.5 }}
+        >
+          <FadeUpText>Our Team</FadeUpText>
+        </motion.div>
+        <hr className="mt-2" />
+        <div className="grid grid-cols-1 gap-10 pt-12 md:grid-cols-2">
+          {team.map((teamMember, index) => (
+            <TeamMember key={index} {...teamMember} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

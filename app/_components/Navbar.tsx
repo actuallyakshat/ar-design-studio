@@ -42,7 +42,7 @@ export default function Navbar() {
             alt={"logo"}
             width={800}
             height={800}
-            className="size-20 object-contain"
+            className="size-20 select-none object-contain"
           />
         </Link>
         <div className="hidden space-x-6 md:flex">

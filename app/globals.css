@@ -127,3 +127,7 @@ div.fp-watermark {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+img {
+  @apply select-none;
+}
