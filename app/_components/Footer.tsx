@@ -35,9 +35,9 @@ const socialItems = [
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t bg-background py-10">
-      <div className="container mx-auto grid max-w-screen-lg grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-5 2xl:max-w-screen-2xl">
-        <div className="col-span-1 lg:col-span-3">
+    <footer className="w-full border-t bg-background px-6 py-10 md:px-10 lg:px-20">
+      <div className="mx-auto flex max-w-screen-lg flex-col gap-5 md:flex-row 2xl:max-w-screen-xl">
+        <div className="flex-1">
           <Image
             src={"/logo.png"}
             alt={"logo"}
@@ -46,38 +46,24 @@ export default function Footer() {
             className="-ml-2 w-32 md:w-28"
           />
           <h4 className="font-inter text-xl font-semibold">AR Design Studio</h4>
-          <p className="my-2 max-w-sm pr-4 text-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
-            modi!
+          <p className="my-2 max-w-sm pr-4 font-cormorantGaramond text-xl font-semibold italic">
+            Transforming Kolkata, One Space at a Time
           </p>
-          <p className="flex items-center gap-2 font-medium">
+          <p className="flex items-center gap-2 text-lg">
             <Mail size={18} />
-            ardesignstudio@gmail.com
+            <Link href="mailto:antararoydesignstudio@gmail.com">
+              antararoydesignstudio@gmail.com
+            </Link>
           </p>
         </div>
-        <div className="col-span-1">
-          <h1 className="font-bold text-muted-foreground">Studio</h1>
+        <div className="min-w-[100px]">
+          <h1 className="text-lg font-bold text-muted-foreground">Studio</h1>
           <div className="mt-4 flex flex-col gap-3">
             {companyItems.map((item) => (
               <Link
                 href={item.href}
                 key={item.name}
-                className="hover:text-main active:text-main text-sm transition-colors duration-300"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-        <div className="col-span-1">
-          <h1 className="font-bold text-muted-foreground">Socials</h1>
-          <div className="mt-4 flex flex-col gap-3">
-            {socialItems.map((item) => (
-              <Link
-                href={item.href}
-                key={item.name}
-                target="_blank"
-                className="hover:text-main active:text-main text-sm transition-colors duration-300"
+                className="text-muted-foreground transition-colors hover:text-black active:text-black"
               >
                 {item.name}
               </Link>
@@ -85,11 +71,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      {/* <div className="mt-4 flex w-full items-center justify-center bg-alternative p-3">
-        <h2 className="font-medium text-white">
-          AR Design Studio. All Rights Reserved
-        </h2>
-      </div> */}
     </footer>
   );
 }
