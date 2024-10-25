@@ -12,7 +12,7 @@ interface FormData {
 export async function sendEmail(data: FormData) {
   try {
     await client.sendMail({
-      to: ["akshatdubey0808@gmail.com", "urja.roy27@gmail.com"],
+      to: ["akshatdubey0808@gmail.com"],
       from: process.env.MAIL_USER,
       subject: "New Query from " + data.name,
       html: `
