@@ -225,7 +225,7 @@ export default function Services() {
           Our Services
         </motion.h1>
       </motion.div>
-      <div className="mx-auto mt-8 flex max-w-[1100px] flex-col gap-10 px-6 2xl:max-w-screen-2xl">
+      <div className="mx-auto mt-8 flex max-w-[1100px] flex-col gap-10 px-6 2xl:max-w-[80%]">
         {services.map((service, index) => (
           <motion.div
             key={index}

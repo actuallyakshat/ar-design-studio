@@ -167,7 +167,7 @@ export function NewAboutUs() {
             earning a reputation for excellence and meticulous attention to
             detail.
           </p>
-          <button className="hover: mx-auto mt-8 flex items-center justify-center gap-3 rounded-full border border-alternative px-6 py-3 font-inter font-light uppercase transition-colors duration-500 hover:bg-alternative hover:text-white md:mx-0">
+          <button className="mx-auto mt-8 flex items-center justify-center gap-3 rounded-full border border-alternative px-6 py-3 font-inter font-light uppercase transition-colors duration-500 hover:bg-alternative hover:text-white md:mx-0">
             Contact Us <ArrowRight />
           </button>
         </motion.div>
@@ -223,7 +223,7 @@ const FeatureItem = ({
       transition={{ duration: 0.5, delay: index * 0.2 }}
     >
       <h3 className="font-cormorantGaramond text-3xl font-semibold md:text-4xl">
-        - {feature.heading}
+        {feature.heading}
       </h3>
       <p className="py-1 font-inter font-light">{feature.description}</p>
     </motion.div>
