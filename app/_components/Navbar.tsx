@@ -12,6 +12,7 @@ import { useState } from "react";
 
 import { Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { getImageSrc } from "@/lib/utils";
 
 const navItems = [
   {
@@ -38,7 +39,7 @@ export default function Navbar() {
       <div className="flex h-full w-full max-w-screen-lg items-center justify-between 2xl:max-w-screen-xl">
         <Link href={"/"}>
           <Image
-            src={"/logo.png"}
+            src={getImageSrc("logo.png")}
             alt={"logo"}
             width={800}
             height={800}
@@ -77,7 +78,7 @@ export function MobileNavbar() {
           <SheetTitle className="flex items-center justify-center">
             <Link href={"/"}>
               <Image
-                src={"/logo.png"}
+                src={getImageSrc("logo.png")}
                 alt={"logo"}
                 width={400}
                 height={400}

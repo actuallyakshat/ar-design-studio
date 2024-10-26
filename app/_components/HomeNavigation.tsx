@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { MobileNavbar } from "./Navbar";
+import { getImageSrc } from "@/lib/utils";
 
 export default function HomeNavigation() {
   return (
@@ -9,7 +10,7 @@ export default function HomeNavigation() {
       <div className="mx-auto flex h-full w-full max-w-screen-xl items-center justify-between px-6 text-white">
         <Link href={"/"}>
           <Image
-            src={"/logo.png"}
+            src={getImageSrc("logo.png")}
             alt={"logo"}
             width={800}
             height={800}

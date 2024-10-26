@@ -1,3 +1,4 @@
+import { getImageSrc } from "@/lib/utils";
 import { Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,7 +40,7 @@ export default function Footer() {
       <div className="mx-auto flex max-w-screen-lg flex-col gap-5 md:flex-row 2xl:max-w-screen-xl">
         <div className="flex-1">
           <Image
-            src={"/logo.png"}
+            src={getImageSrc("logo.png")}
             alt={"logo"}
             width={200}
             height={200}

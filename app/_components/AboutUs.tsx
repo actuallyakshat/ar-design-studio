@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { FadeUpText } from "./FadeUpText";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { getImageSrc } from "@/lib/utils";
 
 const containerVariants = {
   hidden: { opacity: 0, x: -40 },
@@ -23,105 +24,6 @@ const itemVariants = {
   visible: { opacity: 1, x: 0, transition: { duration: 1 } },
 };
 
-// export default function AboutUs() {
-//   const controls = useAnimation();
-//   const ref = useRef(null);
-//   const isInView = useInView(ref, { once: true });
-
-//   // useEffect(() => {
-//   //   if (isInView) {
-//   //     controls.start("visible");
-//   //   }
-//   // }, [controls, isInView]);
-
-//   return (
-//     <section className="section grid w-full grid-cols-5 pb-8 md:pb-4 lg:pb-0">
-//       <motion.div
-//         ref={ref}
-//         initial="hidden"
-//         animate={controls}
-//         variants={containerVariants}
-//         className="col-span-5 p-6 md:col-span-2 md:p-12"
-//       >
-//         <Image
-//           className="aspect-square w-full object-cover object-top md:h-full"
-//           src={"/antra.png"}
-//           alt="Antara Roy"
-//           width={700}
-//           height={700}
-//         />
-//       </motion.div>
-
-//       <motion.div
-//         className="col-span-5 w-full px-6 font-cormorantGaramond md:col-span-3 md:py-12 md:pr-10"
-//         initial="hidden"
-//         animate={controls}
-//         variants={containerVariants}
-//       >
-//         <motion.h2 className="text-4xl font-medium" variants={itemVariants}>
-//           About Us
-//         </motion.h2>
-//         <motion.p
-//           className="text- mt-2 max-w-screen-lg pr-0 font-inter font-light"
-//           variants={itemVariants}
-//         >
-//           Founded by Antara Roy in 2003, AR Design Studio in Kolkata is driven
-//           by a passion for art and a dedication to creating beautiful,
-//           functional spaces. Antara Roy, certified by Birla Institute of Liberal
-//           Arts and Management Sciences, brings a love for art and a keen eye for
-//           detail to every project. Helping people build homes they love and
-//           creating aesthetically pleasing, functional spaces that reflect
-//           client&apos;s personalities and lifestyles. Antara is the sole
-//           designer, collaborating with skilled workers from across the country.
-//           She has successfully completed numerous projects with a reputation for
-//           excellence and attention to detail.
-//         </motion.p>
-//         <motion.h2
-//           className="mt-8 text-4xl font-medium"
-//           variants={itemVariants}
-//         >
-//           What makes us different?
-//         </motion.h2>
-//         <motion.div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
-//           {features.map((feature) => (
-//             <motion.div
-//               key={feature.heading}
-//               className="col-span-1 h-full space-y-1 font-inter"
-//               variants={itemVariants}
-//             >
-//               <h3 className="font-cormorantGaramond text-3xl font-semibold">
-//                 {feature.heading}
-//               </h3>
-//               <p className="font-light">{feature.description}</p>
-//             </motion.div>
-//           ))}
-//         </motion.div>
-//         <motion.h2
-//           className="mt-8 text-4xl font-medium"
-//           variants={itemVariants}
-//         >
-//           Our Team
-//         </motion.h2>
-//         <motion.div
-//           className="mt-2 font-inter text-base font-light"
-//           variants={itemVariants}
-//         >
-//           <p>
-//             At AR Design Studio, our vibrant team thrives on passion and
-//             dedication, featuring:
-//           </p>
-//           <ul className="ml-4 mt-2 list-disc">
-//             <li>Workers</li>
-//             <li>Supervisor</li>
-//             <li>Vaastu Consultant</li>
-//             <li>Interior Designer</li>
-//           </ul>
-//         </motion.div>
-//       </motion.div>
-//     </section>
-//   );
-// }
-
 export function NewAboutUs() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -136,7 +38,7 @@ export function NewAboutUs() {
             animate={isInView ? { scale: 1 } : { scale: 1.2 }}
             transition={{ duration: 1.5, delay: 0.2, ease: "easeInOut" }}
             className="h-full w-full object-cover object-top"
-            src="/antra.png"
+            src={getImageSrc("antra.png")}
             alt="Antara Roy"
           />
         </div>
@@ -273,7 +175,7 @@ export function WhatMakesUsDifferent() {
             ))}
           </div>
           <Image
-            src={"/assets/portfolio/renders/1.1.jpg"}
+            src={getImageSrc("1.1.jpg")}
             alt="wmad"
             width={1080}
             height={1080}
@@ -289,7 +191,7 @@ export function WhatMakesUsDifferent() {
           className="flex grid-cols-5 flex-col-reverse gap-12 pt-6 md:grid md:pt-16"
         >
           <Image
-            src={"/assets/portfolio/renders/1.4.jpg"}
+            src={getImageSrc("1.4.jpg")}
             alt="wmad"
             width={1080}
             height={1080}
@@ -315,25 +217,25 @@ const team = [
     heading: "Craftsmen",
     description:
       "Our skilled craftsmen bring meticulous attention to detail, ensuring the highest quality finishes and design execution. Their expertise covers everything from carpentry to painting, bringing your dream space to life.",
-    image: "/assets/team/worker.jpg",
+    image: "worker.jpg",
   },
   {
     heading: "Supervisor",
     description:
       "The Supervisor ensures timelines are met and quality standards are upheld, aligning every aspect with the client's vision. They coordinate teams efficiently to guarantee smooth project delivery.",
-    image: "/assets/team/supervisor.jpg",
+    image: "supervisor.jpg",
   },
   {
     heading: "Vaastu Consultant",
     description:
       "Our Vaastu Consultant harmonizes your space by applying traditional Indian architectural principles for well-being and prosperity. Their insights help balance elements and energies for optimal living environments.",
-    image: "/assets/team/vaastu.jpg",
+    image: "vaastu.jpg",
   },
   {
     heading: "Interior Designer",
     description:
       "The Interior Designer transforms spaces into functional art, reflecting clients' personalities through innovative and unique designs. From conceptualization to final touches, they ensure every detail complements the aesthetic vision.",
-    image: "/assets/team/designer.jpg",
+    image: "designer.jpg",
   },
 ];
 
@@ -366,7 +268,7 @@ function TeamMember({
       className="col-span-1 flex h-full flex-col space-y-1 font-inter"
     >
       <Image
-        src={image}
+        src={getImageSrc(image)}
         alt={heading}
         width={1080}
         height={1080}

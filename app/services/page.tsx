@@ -18,7 +18,7 @@ const services = [
     title: "Interior Design Consultation",
     description:
       "We offer personalized interior design consultations to understand your vision and create a space that reflects your style and needs. Whether it's a single room or an entire home, we provide expert advice and innovative solutions.",
-    imageUrl: "/assets/portfolio/renders/4.1.jpg",
+    imageUrl: "4.1.jpg",
     subheadings: [
       {
         title: "Consultations",
@@ -41,7 +41,7 @@ const services = [
     title: "Space Planning",
     description:
       "Optimize your living or working space with our space planning services. We analyze the available area and develop layouts that enhance functionality and aesthetics.",
-    imageUrl: "/assets/portfolio/renders/3.2.jpg",
+    imageUrl: "3.2.jpg",
     subheadings: [
       {
         title: "Furniture Selection & Customization",
@@ -64,7 +64,7 @@ const services = [
     title: "Custom Furniture Creation",
     description:
       "We create custom furniture that fits your style and needs. Our team of skilled craftsmen can design and build unique pieces that add character and personality to your space.",
-    imageUrl: "/assets/portfolio/site-images/5.jpg",
+    imageUrl: "5.jpg",
     subheadings: [
       {
         title: "Soft Furnishings & Accessories",
@@ -88,74 +88,6 @@ const services = [
   },
 ];
 
-// export default function Services() {
-//   return (
-//     <main className="w-full py-16">
-//       <div className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/renders/1.5.jpg')] bg-cover bg-[center_60%]">
-//         <div className="absolute h-full w-full bg-black/60"></div>
-//         <h1 className="z-[10] font-cormorantGaramond text-5xl text-background md:text-6xl lg:text-7xl">
-//           Our Services
-//         </h1>
-//       </div>
-//       <div className="mx-auto mt-8 flex max-w-[1100px] flex-col gap-10 px-6 2xl:max-w-screen-2xl">
-//         {services.map((service, index) => (
-//           <div
-//             key={index}
-//             className="grid grid-cols-1 gap-5 lg:grid-cols-5 lg:gap-10"
-//           >
-//             <div
-//               className={`col-span-1 flex flex-col justify-center lg:col-span-3 ${
-//                 index % 2 === 0
-//                   ? "order-2 lg:order-2 lg:pr-20"
-//                   : "order-2 lg:order-2 lg:pl-20"
-//               }`}
-//             >
-//               <SubheadingAccordian subheading={service.subheadings} />
-//             </div>
-//             <div
-//               className={`col-span-1 lg:col-span-2 ${
-//                 index % 2 == 0 ? "order-1 lg:order-2" : "order-1"
-//               }`}
-//             >
-//               <Image
-//                 src={service.imageUrl}
-//                 alt={"service"}
-//                 width={1000}
-//                 height={1000}
-//                 quality={100}
-//                 className="mx-auto aspect-square h-full object-cover"
-//               />
-//             </div>
-//           </div>
-//         ))}
-//         <div className="mx-auto my-2 h-[2px] w-full max-w-[150px] bg-alternative lg:mb-6 lg:mt-12"></div>
-//         <Timeline />
-//       </div>
-//     </main>
-//   );
-// }
-
-// function SubheadingAccordian({ subheading }: { subheading: subheadingItem[] }) {
-//   return (
-//     <Accordion type="multiple" className="w-full">
-//       {subheading.map((item, index) => (
-//         <AccordionItem
-//           value={`item-${index}`}
-//           key={index}
-//           className="w-full max-w-screen-xl border-0"
-//         >
-//           <AccordionTrigger className="w-full text-left font-cormorantGaramond text-2xl text-alternative hover:no-underline md:text-3xl 2xl:text-4xl">
-//             {item.title}
-//           </AccordionTrigger>
-//           <AccordionContent className="font-inter text-sm font-light md:text-base xl:text-lg">
-//             {item.description}
-//           </AccordionContent>
-//         </AccordionItem>
-//       ))}
-//     </Accordion>
-//   );
-// }
-
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
@@ -166,6 +98,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Timeline from "./_components/Timeline";
+import { getImageSrc } from "@/lib/utils";
 
 type subheadingItem = {
   title: string;
@@ -207,10 +140,15 @@ function SubheadingAccordian({ subheading }: { subheading: subheadingItem[] }) {
 }
 
 export default function Services() {
+  const headerURL = getImageSrc("1.5.jpg");
   return (
     <main className="w-full py-16">
       <motion.div
-        className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/renders/1.5.jpg')] bg-cover bg-[center_60%]"
+        className="relative flex h-96 items-center justify-center bg-[center_60%]"
+        style={{
+          backgroundImage: `url("${headerURL}")`, // Note the added quotes around the URL
+          backgroundPosition: "center 65%",
+        }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -251,7 +189,7 @@ export default function Services() {
               }`}
             >
               <Image
-                src={service.imageUrl}
+                src={getImageSrc(service.imageUrl)}
                 alt={"service"}
                 width={1000}
                 height={1000}

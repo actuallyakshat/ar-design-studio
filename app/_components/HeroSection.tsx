@@ -1,9 +1,17 @@
+import { getImageSrc } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 export default function HeroSection() {
+  const headerURL = getImageSrc("1.2.jpg");
   return (
-    <section className="section relative flex size-full flex-col items-center justify-center bg-[url('/assets/portfolio/renders/1.2.jpg')] bg-cover px-6">
+    <section
+      className="section relative flex size-full flex-col items-center justify-center px-6"
+      style={{
+        backgroundImage: `url("${headerURL}")`, // Note the added quotes around the URL
+        backgroundPosition: "center 65%",
+      }}
+    >
       <div className="absolute inset-0 z-[1] h-full w-full bg-black/[0.65]"></div>
       <div className="absolute bottom-4 left-1/2 z-[15] -translate-x-1/2">
         <ChevronDown className="size-12 animate-bounce stroke-white stroke-1" />

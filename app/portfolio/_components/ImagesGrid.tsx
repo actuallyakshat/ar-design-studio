@@ -1,4 +1,5 @@
 "use client";
+import { getImageSrc } from "@/lib/utils";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -8,7 +9,7 @@ const CUTOFF = 6;
 export default function ImagesGrid({
   data,
   heading,
-  pathPrefix
+  pathPrefix,
 }: {
   data: string[];
   heading: string;
@@ -24,7 +25,11 @@ export default function ImagesGrid({
       <div className="mx-auto mt-3 h-[2px] w-[70px] bg-alternative"></div>
       <div className="grid grid-cols-1 gap-1.5 py-6 md:grid-cols-2 lg:grid-cols-3">
         {showImage && (
-          <ImageModal image={selectedImage} setShowImage={setShowImage} prefixPath={pathPrefix} />
+          <ImageModal
+            image={selectedImage}
+            setShowImage={setShowImage}
+            prefixPath={pathPrefix}
+          />
         )}
         {!showMore &&
           data.slice(0, CUTOFF).map((item, index) => {
@@ -39,7 +44,7 @@ export default function ImagesGrid({
               >
                 <Image
                   className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                  src={`/assets/portfolio/${pathPrefix}/${item}`}
+                  src={getImageSrc(item)}
                   alt={heading}
                   width={1000}
                   height={1000}
@@ -70,7 +75,7 @@ export default function ImagesGrid({
               >
                 <Image
                   className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                  src={`/assets/portfolio/${pathPrefix}/${item}`}
+                  src={getImageSrc(item)}
                   alt="Image"
                   width={1000}
                   height={1000}
@@ -114,7 +119,7 @@ function ImageModal({
       )}
       <Image
         className="aspect-square max-h-[90vh] w-full object-contain"
-        src={`/assets/portfolio/${prefixPath}/${image}`}
+        src={getImageSrc(image)}
         alt="3D Render"
         width={2000}
         height={2000}
