@@ -26,7 +26,28 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "AR Design Studio",
-  description: "Demo Preview of the portfolio for AR Design Studio",
+  description: "by Antara Roy",
+  openGraph: {
+    images: [
+      {
+        url: "/preview.png",
+        width: 1200,
+        height: 630,
+        alt: "AR Design Studio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [
+      {
+        url: "/preview.png",
+        width: 1200,
+        height: 630,
+        alt: "AR Design Studio",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
