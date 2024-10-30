@@ -48,6 +48,7 @@ const siteImage = [
 import React from "react";
 import { motion } from "framer-motion";
 import ImagesGrid from "./_components/ImagesGrid";
+import { getImageSrc } from "@/lib/utils";
 
 const fadeInUpVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -55,10 +56,16 @@ const fadeInUpVariants = {
 };
 
 export default function Portfolio() {
+  const headerURL = getImageSrc("1.6.jpg"); // This now returns the full Cloudinary URL
+
   return (
     <div className="h-full min-h-screen pb-16 pt-16">
       <motion.div
-        className="relative flex h-96 items-center justify-center bg-[url('/assets/portfolio/renders/1.6.jpg')] bg-cover bg-[center_83%]"
+        className="relative flex h-96 items-center justify-center bg-cover"
+        style={{
+          backgroundImage: `url("${headerURL}")`, // Note the added quotes around the URL
+          backgroundPosition: "center 65%",
+        }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
