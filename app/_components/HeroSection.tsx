@@ -6,7 +6,7 @@ export default function HeroSection() {
   const headerURL = getImageSrc("1.2.jpg");
   return (
     <section
-      className="section relative flex size-full flex-col items-center justify-center px-6"
+      className="section relative flex size-full flex-col items-center justify-center bg-cover px-6"
       style={{
         backgroundImage: `url("${headerURL}")`, // Note the added quotes around the URL
         backgroundPosition: "center 65%",
