@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { motion } from "framer-motion";
+import { sendEmail } from "../_actions/actions";
 
 interface FormData {
   name: string;
